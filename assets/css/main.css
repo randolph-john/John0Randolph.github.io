@@ -908,7 +908,7 @@
 			#main .avatar img {
 				display: block;
 				margin: 0 auto;
-				border-radius: 100%;
+				border-radius: 20%;
 				box-shadow: 0 0 0 1.5em #ffffff;
 			}
 
