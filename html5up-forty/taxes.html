@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<!--
+	TODO:
+	Add rest of budget items
+	Fix menu
+	Merge with main site
+	Add to main page: projects button
+	Add to main page: logo in top left
+	***** Release V1 *****
+
+	Click dropdown of detail on categories
+	Explanation of exactly how many services for each category
+	Cute graphic for each category
+	poll (less or more or same)
+	show poll results
+	Local/State tax calculations
+	Links to my policy proposals - changing social security to privatization, e.g.
+	Comparisons to other states/countries
+-->
+<html>
+	<head>
+		<title>John G Randolph</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="../index.html" class="logo">John <span>G <strong>Randolph</strong></span> .com</a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="../index.html">Home</a></li>
+							<li><a href="taxes.html">Tax Calculator</a></li>
+						</ul>
+					</nav>
+
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+								<h1>How much did you pay in federal taxes in 2019?</h1>
+
+							<!-- <div class="content"> -->
+								<form method="post" action="#">
+									<div class="col-12-xlarge">
+										<input type="text" name="demo-name" id="tax-entry" value="" placeholder="$10,489"></input>
+									</div>
+								</form>
+								<ul class="actions">
+									<li><a href="#idk"><input type="submit" value="I don't know" class="primary large" onclick="onIDontKnow();"/></a></li>
+									<li><a href="#main" class="button large next scrolly" onclick='onEnterTaxNumber();'>Enter</a></li>
+								</ul>
+							<!-- </div> -->
+						</div>
+					</section>
+
+				<!-- I Don't Know -->
+				<!-- this will be filled in by inject-html.js -->
+					<section id="idk" class="major">
+					</section>
+
+				<!-- Filing -->
+				<!-- this will be filled in by inject-html.js -->
+					<section id="filing" class="major">
+					</section>
+
+				<!-- You Paid -->
+				<!-- this will be filled in by inject-html.js -->
+					<section id="paid" class="major">
+					</section>
+
+				<!-- Main -->
+				<!-- this will be filled in by inject-html.js -->
+					<div id="main">
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<input type="submit" value="Sources" class="small" onclick="hideShowSources();"/>
+							<div class="table-wrapper" id="sources" style="display:none">
+								<table>
+									<tbody>
+										<tr>
+											<td>Tax Brackets</td>
+											<td><a href="https://www.debt.org/tax/brackets/">https://www.debt.org/tax/brackets/</a></td>
+										</tr>
+										<tr>
+											<td>Federal Budgets</td>
+											<td><a href="https://www.cbo.gov/publication/56324">https://www.cbo.gov/publication/56324</a></td>
+										</tr>
+										<tr>
+											<td>Federal Budgets</td>
+											<td><a href="https://www.usaspending.gov/#/explorer/budget_function">https://www.usaspending.gov/#/explorer/budget_function</a></td>
+										</tr>
+								</table>
+							</div>
+							<p></p> <!-- this is for spacing... yikes, I know -->
+							<ul class="icons">
+								<li><a href="https://github.com/John0Randolph" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/randolph-john/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="mailto:john_randolph@brown.edu" class="icon alt fa-envelope"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; John Randolph 2020</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="inject-html.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
