@@ -6,13 +6,7 @@
 -->
 <!--
 	TODO:
-	Add rest of budget items
-	Fix menu
-	Merge with main site
-	Add to main page: projects button
-	Add to main page: logo in top left
-	***** Release V1 *****
-
+	Make second enter button work (in idk)
 	Click dropdown of detail on categories
 	Explanation of exactly how many services for each category
 	Cute graphic for each category
@@ -21,6 +15,14 @@
 	Local/State tax calculations
 	Links to my policy proposals - changing social security to privatization, e.g.
 	Comparisons to other states/countries
+
+	Potential add ons to tax page:
+	- graph over time
+	- change due to Obama, Trump, specific bills
+	- poll "I should pay more/less"
+	- dropdown of detail on categories
+	- icons
+	- explanation of how many services for each category
 -->
 <html>
 	<head>
@@ -29,6 +31,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="icon" type="image/jpg" href="../images/thumbsup_smallest.jpg"/>
 	</head>
 	<body class="is-preload">
 
@@ -47,7 +50,7 @@
 					<nav id="menu">
 						<ul class="links">
 							<li><a href="../index.html">Home</a></li>
-							<li><a href="taxes.html">Tax Calculator</a></li>
+							<li><a href="taxes.html">Tax Breakdown</a></li>
 						</ul>
 					</nav>
 
@@ -57,14 +60,14 @@
 								<h1>How much did you pay in federal taxes in 2019?</h1>
 
 							<!-- <div class="content"> -->
-								<form method="post" action="#">
+								<form method="post" action="#" onsubmit="return false;">
 									<div class="col-12-xlarge">
 										<input type="text" name="demo-name" id="tax-entry" value="" placeholder="$10,489"></input>
 									</div>
 								</form>
 								<ul class="actions">
-									<li><a href="#idk"><input type="submit" value="I don't know" class="primary large" onclick="onIDontKnow();"/></a></li>
-									<li><a href="#main" class="button large next scrolly" onclick='onEnterTaxNumber();'>Enter</a></li>
+									<li><a href="#idk"><input type=submit value="I don't know" class="primary large" onclick="onIDontKnow();"/></a></li>
+									<li><a href="#main" id="enter-tax" class="button large next scrolly" onclick='onEnterTaxNumber();'>Enter</a></li>
 								</ul>
 							<!-- </div> -->
 						</div>
@@ -114,7 +117,7 @@
 							</div>
 							<p></p> <!-- this is for spacing... yikes, I know -->
 							<ul class="icons">
-								<li><a href="https://github.com/John0Randolph" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://github.com/John0Randolph" class="icon alt fa-github"><span class="label" style="color:black;">GitHub</span></a></li>
 								<li><a href="https://www.linkedin.com/in/randolph-john/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
 								<li><a href="mailto:john_randolph@brown.edu" class="icon alt fa-envelope"><span class="label">LinkedIn</span></a></li>
 							</ul>
@@ -135,6 +138,22 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script>
+				$(document).ready(function(){
+				    $('#tax-entry').keypress(function(e){
+				      if(e.keyCode==13)
+				      $('#enter-tax').click();
+				    });
+				});
+			</script>
+			<script>
+				$(document).ready(function(){
+						$('#salary-entry').keypress(function(e){
+							if(e.keyCode==13)
+							$('#enter-salary').click();
+						});
+				});
+			</script>
+			<div id="add-script"></div>
 	</body>
 </html>

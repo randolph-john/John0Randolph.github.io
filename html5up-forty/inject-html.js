@@ -3,26 +3,25 @@
 // Each entry is [name, percent, description, link]
 var articles = [
   ["Medicare", .168, "Health insurance for 44 million americans who are over 65 or have disabilities or ALS", "https://www.medicare.gov/Pubs/pdf/11306-Medicare-Medicaid.pdf"],
-  ["Social Security", .158, "Guaranteed payout for all Americans over 65", "https://www.cbpp.org/research/social-security/policy-basics-top-ten-facts-about-social-security"],
+  ["Social Security", .1579, "Guaranteed payout for all Americans over 65", "https://www.cbpp.org/research/social-security/policy-basics-top-ten-facts-about-social-security"],
   // ["Medicaid", .093, "Health insurance for 64 million americans who are low-income, are or have children, or are pregnant", "https://www.kff.org/medicaid/issue-brief/10-things-to-know-about-medicaid-setting-the-facts-straight/"],
-  ["Defense", .153, "The Army, Marine Corps, Navy, Air Force, and Space Force", "https://www.thebalance.com/u-s-military-budget-components-challenges-growth-3306320"],
-  ["Medicaid", .105, "Medicaid subsidies to states, who pay the other 40 percent"],
-  ["Interest", .085, "Interest payments on the $24 Trillion national debt", "https://www.investopedia.com/updates/usa-national-debt/"],
-  ["Income Security", .082, "Federal retirement, food and nutrition assistance, housing assistance, unemployment, etc"],
-  ["General Government Expenses", .058, "Various government administration"],
-  ["Unreported", .048, "We don't know where this money goes"],
-  ["Veteran's Benefits", .031, "Benefits for those who worked in the military"],
-  ["Social Services", .003102, "Social services"],
-  ["Education", .137989, "Higher education"],
-  ["International Affairs", .019, "international affairs"],
-  ["Transportation", .017, "transpo"],
-  ["Department of Justice", .012, "courts"],
-  ["Natural resources and Environment", .01, "water engineering, polluiton control, land conservation, etc"],
-  ["Regional development", .009, "distater relief and development"],
-  ["Commerce and Housing credits", .008, "credits"],
-  ["Agricultural subsidies", .006, "big agro"],
-  ["Space Tech and Science", .006, "break this up"],
-  ["Energy", .003, "dep of energy"],
+  ["Defense", .1537, "The Army, Marine Corps, Navy, Air Force, and Space Force", "https://www.thebalance.com/u-s-military-budget-components-challenges-growth-3306320"],
+  ["Medicaid", .105, "Medicaid subsidies to states, who pay the other 40 percent", "https://www.caring.com/caregivers/medicaid/"],
+  ["Interest", .0845, "Interest payments on the $24 Trillion national debt", "https://www.investopedia.com/updates/usa-national-debt/"],
+  ["Income Security", .0821, "Federal retirement, food and nutrition assistance, housing assistance, unemployment, etc", "https://budget.house.gov/focus-function-600-income-security-0#:~:text=Function%20600%20(Income%20Security)%20consists,assistance%3B%20nutrition%20assistance%3B%20and%20other"],
+  ["General Government Expenses", .0581, "IRS refunds, Treasury, legislative functions, etc", "https://home.treasury.gov/about/general-information/role-of-the-treasury"],
+  ["Veteran's Benefits", .0313, "Income security, hospital care, job training, housing for those who worked in the military", "https://www.military.com/benefits/veteran-benefits/veterans-benefits-explained.html"],
+  ["Education", .0224*(1-.1409), "Elementary, secondary, vocational, and higher education, as well as research and education aids", "https://www.usnews.com/news/blogs/data-mine/2016/01/14/federal-education-funding-where-does-the-money-go"],
+  ["International Affairs", .0186, "Internalional diplomacy, the Peace Corps, and other US international interests", "https://www.fp4america.org/international-affairs-budget#:~:text=The%20International%20Affairs%20Budget%20(IAB,)%2C%20and%20the%20Peace%20Corps.&text=They%20also%20protect%20American%20national%20security."],
+  ["Transportation", .0173, "Roads, airlines, railways, and regulations", "http://www.allgov.com/departments/department-of-transportation?detailsDepartmentID=578#:~:text=The%20Department%20of%20Transportation%20(DOT)%20is%20the%20federal%20government's%20lead,air%20corridors%2C%20railways%20and%20seaports."],
+  ["Law Enforcement", .0118, "Federal law enforcement, litigation, and prisons.", "https://www.federallawenforcement.org/what-is-federal-law-enforcement/"],
+  ["Natural Resources and Environment", .0105, "Water engineering, pollution control, land conservation, etc", "https://budget.house.gov/focus-function-300-natural-resources-and-environment-0"],
+  ["Regional Development", .0088, "Distater relief and rural subsidies", "https://budget.house.gov/focus-function-450-community-and-regional-development-0"],
+  ["Commerce and Housing Credits", .0076, "Earned income tax credit, loans and insurance for housing and urban development, etc", "https://budget.house.gov/focus-function-370-commerce-and-housing-credit-0"],
+  ["Agricultural Subsidies", .0059, "Subsidies to farmers to protect against low yield years and stabilize the market", "https://usafacts.org/articles/federal-farm-subsidies-what-data-says/"],
+  ["Space Tech and Science", .0056, "NASA, National Institute of Health, National Science Foundation, grants, etc", "https://www.sciencemag.org/news/2017/05/how-science-fares-us-budget-deal"],
+  ["Energy", .0035, "infrastructure and utilites, espeically to rural areas, regulation, emergency preparedness", "http://www.allgov.com/departments/department-of-energy?detailsDepartmentID=565"],
+  ["Social Services", .0224*.1409, "Assistance and programs for disabled people, seniors, homeless, and low income people run by 680,000 social workers. Child support, foster care, etc.", "https://www.rasmussen.edu/degrees/health-sciences/blog/what-is-social-services/"],
 ];
 var tax_rates = [0, .1, .12, .22, .24, .32, .35, .37];
 var type_1_brackets = [0, 9700, 39475, 84200, 160725, 204100, 510300];
@@ -64,9 +63,11 @@ function getHTML(payment) {
     html += "<h3><a href=\"#\" class=\"link\">"
     html += "<span style='color:green'>" + usd.format(payment*entry[1]) + " </span> to " + entry[0]
     html += "</a></h3>"
-    html += "<p>"
-    html += entry[2]
-    html += "</p>"
+    if (entry.length > 2) {
+      html += "<p>"
+      html += entry[2]
+      html += "</p>"
+    }
     html += "<br />" // for spacing... yikes, I know
     if (entry.length > 3) {
       html += "<ul class=\"actions\">"
@@ -93,6 +94,9 @@ function onEnterTaxNumber(payment) {
   }
 
   document.getElementById("main").innerHTML = getHTML(val);
+  document.getElementById("idk").innerHTML = "";
+  document.getElementById("how-file").innerHTML = "";
+  document.getElementById("you-probably-paid").innerHTML = "";
 }
 
 
@@ -102,21 +106,24 @@ function onIDontKnow() {
   html = "<div class=\"inner\">"
   html += "<h1>How much money did you make in 2019?</h1>"
 
-  html += "<form method=\"post\" action=\"#\">"
+  html += "<form method=\"post\" action=\"#\" onsubmit=\"return false;\">"
   html += "<div class=\"col-12-xlarge\">"
   html += "<input type=\"text\" name=\"demo-name\" id=\"salary-entry\" value=\"\" placeholder=\"$59,039\" />"
   html += "</div>"
   html += "</form>"
 
   html += "<ul class=\"actions\">"
-  html += "<li><a href=\"#filing\" class=\"button large next scrolly\" onclick=\'onSalary();\'>Enter</a></li>"
+  html += "<li><a href=\"#filing\" id=\"enter-tax\" class=\"button large next scrolly\" onclick=\'onSalary();\'>Enter</a></li>"
   html += "</ul>"
 
   html += "</div>"
 
-  document.getElementById("idk").innerHTML = html;
-  document.getElementById("one").innerHTML = "";
-  document.getElementById("you-paid").innerHTML = "";
+  document.getElementById("add-script").innerHTML = "<script src=\"salary-enter.js\"></script>"
+  document.getElementById("idk").innerHTML = html
+  document.getElementById("main").innerHTML = ""
+  if (document.getElementById("you-paid") !== null) {
+    document.getElementById("you-paid").innerHTML = ""
+  }
 }
 
 
@@ -128,7 +135,7 @@ function onSalary() {
   }
 
   html = "";
-  html = "<div class=\"inner\">"
+  html = "<div class=\"inner\" id=\"how-file\">"
   html += "<h1>How did you file your taxes in 2019?</h1>"
 
   html += "<ul class=\"actions\">"
@@ -185,7 +192,7 @@ function onFiling(amount, type) {
   paid = calculateAmountPaid(amount, type);
 
   html = "";
-  html += "<div class=\"inner\">";
+  html += "<div class=\"inner\" id=\"you-probably-paid\">";
   html += "<h1>You probably paid <span style='color:green'>" + usd.format(paid) + "</span> in federal taxes in 2019.</h1>";
   html += "<ul class=\"actions\">";
   html += "<li><a href=\"#banner\" class=\"button large next scrolly\" onclick=\'onTaxPaid(" + paid + ");\'>Okay</a></li>";
