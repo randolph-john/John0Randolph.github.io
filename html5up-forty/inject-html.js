@@ -2,26 +2,25 @@
 // array of articles to put in
 // Each entry is [name, percent, description, link]
 var articles = [
-  ["Medicare", .168, "Health insurance for 44 million americans who are over 65 or have disabilities or ALS", "https://www.medicare.gov/Pubs/pdf/11306-Medicare-Medicaid.pdf"],
-  ["Social Security", .1579, "Guaranteed payout for all Americans over 65", "https://www.cbpp.org/research/social-security/policy-basics-top-ten-facts-about-social-security"],
-  // ["Medicaid", .093, "Health insurance for 64 million americans who are low-income, are or have children, or are pregnant", "https://www.kff.org/medicaid/issue-brief/10-things-to-know-about-medicaid-setting-the-facts-straight/"],
-  ["Defense", .1537, "The Army, Marine Corps, Navy, Air Force, and Space Force", "https://www.thebalance.com/u-s-military-budget-components-challenges-growth-3306320"],
-  ["Medicaid", .105, "Medicaid subsidies to states, who pay the other 40 percent", "https://www.caring.com/caregivers/medicaid/"],
-  ["Interest", .0845, "Interest payments on the $24 Trillion national debt", "https://www.investopedia.com/updates/usa-national-debt/"],
-  ["Income Security", .0821, "Federal retirement, food and nutrition assistance, housing assistance, unemployment, etc", "https://budget.house.gov/focus-function-600-income-security-0#:~:text=Function%20600%20(Income%20Security)%20consists,assistance%3B%20nutrition%20assistance%3B%20and%20other"],
-  ["General Government Expenses", .0581, "IRS refunds, Treasury, legislative functions, etc", "https://home.treasury.gov/about/general-information/role-of-the-treasury"],
-  ["Veteran's Benefits", .0313, "Income security, hospital care, job training, housing for those who worked in the military", "https://www.military.com/benefits/veteran-benefits/veterans-benefits-explained.html"],
-  ["Education", .0224*(1-.1409), "Elementary, secondary, vocational, and higher education, as well as research and education aids", "https://www.usnews.com/news/blogs/data-mine/2016/01/14/federal-education-funding-where-does-the-money-go"],
-  ["International Affairs", .0186, "Internalional diplomacy, the Peace Corps, and other US international interests", "https://www.fp4america.org/international-affairs-budget#:~:text=The%20International%20Affairs%20Budget%20(IAB,)%2C%20and%20the%20Peace%20Corps.&text=They%20also%20protect%20American%20national%20security."],
-  ["Transportation", .0173, "Roads, airlines, railways, and regulations", "http://www.allgov.com/departments/department-of-transportation?detailsDepartmentID=578#:~:text=The%20Department%20of%20Transportation%20(DOT)%20is%20the%20federal%20government's%20lead,air%20corridors%2C%20railways%20and%20seaports."],
-  ["Law Enforcement", .0118, "Federal law enforcement, litigation, and prisons.", "https://www.federallawenforcement.org/what-is-federal-law-enforcement/"],
-  ["Natural Resources and Environment", .0105, "Water engineering, pollution control, land conservation, etc", "https://budget.house.gov/focus-function-300-natural-resources-and-environment-0"],
-  ["Regional Development", .0088, "Distater relief and rural subsidies", "https://budget.house.gov/focus-function-450-community-and-regional-development-0"],
-  ["Commerce and Housing Credits", .0076, "Earned income tax credit, loans and insurance for housing and urban development, etc", "https://budget.house.gov/focus-function-370-commerce-and-housing-credit-0"],
-  ["Agricultural Subsidies", .0059, "Subsidies to farmers to protect against low yield years and stabilize the market", "https://usafacts.org/articles/federal-farm-subsidies-what-data-says/"],
-  ["Space Tech and Science", .0056, "NASA, National Institute of Health, National Science Foundation, grants, etc", "https://www.sciencemag.org/news/2017/05/how-science-fares-us-budget-deal"],
-  ["Energy", .0035, "infrastructure and utilites, espeically to rural areas, regulation, emergency preparedness", "http://www.allgov.com/departments/department-of-energy?detailsDepartmentID=565"],
-  ["Social Services", .0224*.1409, "Assistance and programs for disabled people, seniors, homeless, and low income people run by 680,000 social workers. Child support, foster care, etc.", "https://www.rasmussen.edu/degrees/health-sciences/blog/what-is-social-services/"],
+  ["Medicare", .168, "Health insurance for 44 million americans who are over 65 or have disabilities or ALS", "https://www.medicare.gov/Pubs/pdf/11306-Medicare-Medicaid.pdf", "medicare"],
+  ["Social Security", .1579, "Guaranteed payout for all Americans over 65", "https://www.cbpp.org/research/social-security/policy-basics-top-ten-facts-about-social-security", "ss"],
+  ["Defense", .1537, "The Army, Marine Corps, Navy, Air Force, and Space Force", "https://www.thebalance.com/u-s-military-budget-components-challenges-growth-3306320", "tank"],
+  ["Medicaid", .105, "Medicaid subsidies to states, who pay the other 40 percent", "https://www.caring.com/caregivers/medicaid/", "doctor"],
+  ["Interest", .0845, "Interest payments on the $24 Trillion national debt", "https://www.investopedia.com/updates/usa-national-debt/", "debt"],
+  ["Income Security", .0821, "Federal retirement, food and nutrition assistance, housing assistance, unemployment, etc", "https://budget.house.gov/focus-function-600-income-security-0#:~:text=Function%20600%20(Income%20Security)%20consists,assistance%3B%20nutrition%20assistance%3B%20and%20other", "income"],
+  ["General Government Expenses", .0581, "IRS refunds, Treasury, legislative functions, etc", "https://home.treasury.gov/about/general-information/role-of-the-treasury", "capitol"],
+  ["Veteran's Benefits", .0313, "Income security, hospital care, job training, housing for those who worked in the military", "https://www.military.com/benefits/veteran-benefits/veterans-benefits-explained.html", "benefits"],
+  ["Education", .0224*(1-.1409), "Elementary, secondary, vocational, and higher education, as well as research and education aids", "https://www.usnews.com/news/blogs/data-mine/2016/01/14/federal-education-funding-where-does-the-money-go", "teacher"],
+  ["International Affairs", .0186, "Internalional diplomacy, the Peace Corps, and other US international interests", "https://www.fp4america.org/international-affairs-budget#:~:text=The%20International%20Affairs%20Budget%20(IAB,)%2C%20and%20the%20Peace%20Corps.&text=They%20also%20protect%20American%20national%20security.", "globe"],
+  ["Transportation", .0173, "Roads, airlines, railways, and regulations", "http://www.allgov.com/departments/department-of-transportation?detailsDepartmentID=578#:~:text=The%20Department%20of%20Transportation%20(DOT)%20is%20the%20federal%20government's%20lead,air%20corridors%2C%20railways%20and%20seaports.", "train"],
+  ["Law Enforcement", .0118, "Federal law enforcement, litigation, and prisons.", "https://www.federallawenforcement.org/what-is-federal-law-enforcement/", "law"],
+  ["Natural Resources and Environment", .0105, "Water engineering, pollution control, land conservation, etc", "https://budget.house.gov/focus-function-300-natural-resources-and-environment-0", "sapling"],
+  ["Regional Development", .0088, "Distater relief and rural subsidies", "https://budget.house.gov/focus-function-450-community-and-regional-development-0", "shovel"],
+  ["Commerce and Housing Credits", .0076, "Earned income tax credit, loans and insurance for housing and urban development, etc", "https://budget.house.gov/focus-function-370-commerce-and-housing-credit-0", "refund"],
+  ["Agricultural Subsidies", .0059, "Subsidies to farmers to protect against low yield years and stabilize the market", "https://usafacts.org/articles/federal-farm-subsidies-what-data-says/", "farm"],
+  ["Space Tech and Science", .0056, "NASA, National Institute of Health, National Science Foundation, grants, etc", "https://www.sciencemag.org/news/2017/05/how-science-fares-us-budget-deal", "astronaut"],
+  ["Energy", .0035, "infrastructure and utilites, espeically to rural areas, regulation, emergency preparedness", "http://www.allgov.com/departments/department-of-energy?detailsDepartmentID=565", "plug"],
+  ["Social Services", .0224*.1409, "Assistance and programs for disabled people, seniors, homeless, and low income people run by 680,000 social workers. Child support, foster care, etc.", "https://www.rasmussen.edu/degrees/health-sciences/blog/what-is-social-services/", "baby"],
 ];
 var tax_rates = [0, .1, .12, .22, .24, .32, .35, .37];
 var type_1_brackets = [0, 9700, 39475, 84200, 160725, 204100, 510300];
@@ -56,12 +55,17 @@ function getHTML(payment) {
 
   html += "<section id=\"one\" class=\"tiles\">";
   for (entry of articles) {
-    html += (first ? "": "<article></article>")
+    if (!first) {
+      html += "<article></article>"
+    }
 
     html += "<article>"
     html += "<header class=\"major\">"
     html += "<h3><a href=\"#\" class=\"link\">"
     html += "<span style='color:green'>" + usd.format(payment*entry[1]) + " </span> to " + entry[0]
+    if (entry.length > 4) {
+      html += "<span style=\"text-align:right;\"><img style=\"float:right\" width=\"50\" height=\"50\" src=\"../images/icons/" + entry[4] + ".png\" alt=\"" + entry[4] + "\"></span>"
+    }
     html += "</a></h3>"
     if (entry.length > 2) {
       html += "<p>"
@@ -76,7 +80,9 @@ function getHTML(payment) {
     }
     html += "</header>"
     html += "</article>"
-    html += (first ? "<article></article>" : "")
+    if (first) {
+      html += "<article></article>"
+    }
     first = !first;
   }
   html += "</section>"
