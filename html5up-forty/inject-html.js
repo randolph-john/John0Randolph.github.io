@@ -17,10 +17,10 @@ var articles = [
   ["Natural Resources and Environment", .0105, "Water engineering, pollution control, land conservation, etc", "https://budget.house.gov/focus-function-300-natural-resources-and-environment-0", "sapling"],
   ["Regional Development", .0088, "Distater relief and rural subsidies", "https://budget.house.gov/focus-function-450-community-and-regional-development-0", "shovel"],
   ["Commerce and Housing Credits", .0076, "Earned income tax credit, loans and insurance for housing and urban development, etc", "https://budget.house.gov/focus-function-370-commerce-and-housing-credit-0", "refund"],
-  ["Agricultural Subsidies", .0059, "Subsidies to farmers to protect against low yield years and stabilize the market", "https://usafacts.org/articles/federal-farm-subsidies-what-data-says/", "farm"],
-  ["Space Tech and Science", .0056, "NASA, National Institute of Health, National Science Foundation, grants, etc", "https://www.sciencemag.org/news/2017/05/how-science-fares-us-budget-deal", "astronaut"],
-  ["Energy", .0035, "infrastructure and utilites, espeically to rural areas, regulation, emergency preparedness", "http://www.allgov.com/departments/department-of-energy?detailsDepartmentID=565", "plug"],
-  ["Social Services", .0224*.1409, "Assistance and programs for disabled people, seniors, homeless, and low income people run by 680,000 social workers. Child support, foster care, etc.", "https://www.rasmussen.edu/degrees/health-sciences/blog/what-is-social-services/", "baby"],
+  ["Agricultural Subsidies", .0059, "Subsidies to farmers that protect against low yield years to stabilize the market and enhance national security", "https://usafacts.org/articles/federal-farm-subsidies-what-data-says/", "farm"],
+  ["Space Tech and Science", .0056, "NASA, National Institute of Health, National Science Foundation, various grants, and more", "https://www.sciencemag.org/news/2017/05/how-science-fares-us-budget-deal", "astronaut"],
+  ["Energy", .0035, "infrastructure and utilites, primarily to rural areas. Also regulation and emergency preparedness", "http://www.allgov.com/departments/department-of-energy?detailsDepartmentID=565", "plug"],
+  ["Social Services", .0224*.1409, "Assistance and programs for disabled people, seniors, homeless, and low income people run by 680,000 social workers. Child support, foster care, and more.", "https://www.rasmussen.edu/degrees/health-sciences/blog/what-is-social-services/", "baby"],
 ];
 var tax_rates = [0, .1, .12, .22, .24, .32, .35, .37];
 var type_1_brackets = [0, 9700, 39475, 84200, 160725, 204100, 510300];
@@ -56,7 +56,8 @@ function getHTML(payment) {
   html += "<section id=\"one\" class=\"tiles\">";
   for (entry of articles) {
     if (!first) {
-      html += "<article></article>"
+      html += "<article>"
+      html += "</article>"
     }
 
     html += "<article>"
@@ -73,6 +74,7 @@ function getHTML(payment) {
       html += "</p>"
     }
     html += "<br />" // for spacing... yikes, I know
+    html += "<div class=\"os_poll\" data-path=\"/polls/2665624\" id=\"os-widget-714960\"></div>"
     if (entry.length > 3) {
       html += "<ul class=\"actions\">"
       html += "<li><a href=\"" + entry[3] + "\" target=\"_blank\" class=\"button\">Learn more</a></li>"
@@ -81,11 +83,18 @@ function getHTML(payment) {
     html += "</header>"
     html += "</article>"
     if (first) {
-      html += "<article></article>"
+      html += "<article>"
+      html += "<div class=\"os_poll\" data-path=\"/polls/2665624\" id=\"os-widget-714960\"></div>"
+      html += "</article>"
     }
     first = !first;
   }
   html += "</section>"
+
+  myScript = document.createElement("script");
+  myScript.setAttribute("src", "https://www.benchmarkemail.com/Poll/Start?g=8661&id=1264448&w=220&url=");
+  document.body.appendChild(myScript);
+
   return html;
 }
 
@@ -98,6 +107,24 @@ function onEnterTaxNumber(payment) {
   if (isNaN(val)) {
     return;
   }
+
+  // var script = document.createElement('script');
+  // script.type = 'text/javascript';
+  // script.onload = function() {
+  //     callFunctionFromScript();
+  // }
+  // script.src = 'path/to/your-script.js';
+  //
+  // <script type="text/javascript">
+  // (function(d,s,id,u){
+  //   if (d.getElementById(id)) return;
+  //   var js, sjs = d.getElementsByTagName(s)[0],
+  //       t = Math.floor(new Date().getTime() / 1000000);
+  //   js=d.createElement(s); js.id=id; js.async=1; js.src=u+'?'+t;
+  //   sjs.parentNode.insertBefore(js, sjs);
+  // }(document, 'script', 'os-widget-jssdk', 'https://www.opinionstage.com/assets/loader.js'));
+  // </script><div class="os_poll" data-path="/polls/2665624" id="os-widget-714960"></div>
+
 
   document.getElementById("main").innerHTML = getHTML(val);
   document.getElementById("idk").innerHTML = "";

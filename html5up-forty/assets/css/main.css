@@ -3969,3 +3969,18 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
+
+		strong {
+			/* -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+			-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+			-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+			transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; */
+			background-color: #ffffff;
+			color: #242943;
+			display: inline-block;
+			line-height: 1.65em;
+			/* margin-right: 0.325em; */
+			/* padding: 0 0.125em 0 0.375em; */
+			padding: 0 0.25em 0 0.25em;
+		}

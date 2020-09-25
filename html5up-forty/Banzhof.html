@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<!--
+	include section on National Popular Vote Interstate Compact
+	reference here: https://cpb-us-e1.wpmucdn.com/blogs.gwu.edu/dist/2/115/files/2016/05/ElectoralCollege-12kokn9.pdf
+-->
+<html>
+	<head>
+		<title>John G Randolph</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="icon" type="image/jpg" href="../images/thumbsup_smallest.jpg"/>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="../index.html" class="logo">John <span>G <strong>Randolph</strong></span> .com</a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="../index.html">Home</a></li>
+							<li><a href="taxes.html">Tax Breakdown</a></li>
+							<li><a href="banzhaf.html">Banzhaf Power Index</a></li>
+						</ul>
+					</nav>
+
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<img style="float:right" width="600em" src="../images/electorate.png" alt="electoral college image">
+								<h1 style="font-size:2.5em">The <strong>Banzhaf Power Index </strong><br />
+								<span style="font-size:.585em">A Probabilistic Take on the <strong>Electoral College</strong></span></h1>
+								<ul class="actions">
+									<li><a href="#main" id="enter-tax" class="button large next scrolly" onclick='onStart();'>What is this?</a></li>
+								</ul>
+							<div class="os_poll" data-path="/polls/2665624" id="os-widget-714960"></div>
+
+						</div>
+
+					</section>
+					<section>
+						<br />
+						here is the ohio congressional district 12
+<iframe src="https://www.google.com/maps/d/embed?mid=1FR-zo5IZTllAC2ip2oheLS_SUv2m88te&hl=en" width="640" height="480"></iframe>
+<iframe width="425" height="300" frameborder="0" scrolling="yes"
+src="https://www.govtrack.us/congress/members/embed/mapframe?&bounds=-122.149,49.727,-72.051,21.497"></iframe>
+					</section>
+
+					<iframe src="https://www.google.com/maps/d/embed?mid=1zL9Z2adH0eZuYnlVzgXXB7h5E-U&hl=en" width="640" height="480"></iframe>
+
+
+				<!-- I Don't Know -->
+				<!-- this will be filled in by inject-html.js -->
+					<section id="idk" class="major">
+						<h2>Enter the <strong>Banzhaf Power Index</strong></h2>
+						<p> Describe algorithm. Latex-like writing of actual algo. Citation </p>
+						<ul class="actions">
+							<li><a id="basic-trivial" class="button" onclick=''>Trivial example</a></li>
+							<li><a id="basic-simple" class="button" onclick=''>Simple Example</a></li>
+						</ul>
+						<h2>So what's the Probabilistic take?</h2>
+						<p>We're making a big assumption: everyone has 50% chance of voting either way. What if we don't know</p>
+						<ul class="actions">
+							<li><a id="basic-trivial" class="button" onclick=''>Simple example (turns simple ex into trivial - say we know one voter is always going to vote one way)</a></li>
+							<li><a id="basic-simple" class="button" onclick=''>Difficult Example - with probabilites</a></li>
+						</ul>
+						<h2>But how does this relate to the electoral college</h2>
+						<p>States are blocks of voters. We can approximate chances of each state (thank you 270towin.com). Can apply banzhaf power index! </p>
+						<h2>And now to really get into the nitty gritty</h2>
+						<p>Same logic can be applied to individual voters in states. If state is going to determine election, what is % chance a voter in that state will cast deciding vote?
+						Note, easier since everyone single vote. Hmmmm is this trivial since everyone is equal? Or nah?? Look into this...</p>
+					</section>
+
+					<section>
+						Map of the USA will go here again, but now with options to change (for state or per person or per voter)
+						- each state is red or blue with BPI percent over state
+
+						Data table for states
+						Columns:
+
+						State name - Alabama
+
+						Electoral votes - 9
+						% chance republican - 95 - editable, changes with chance democratic
+						% chance democratic - 5 - editable, changes with chance republican
+						# people - 9mil (cite)
+						# expected voters - 5mil (# of 2016 voters scaled to pop) - add footnote on this - editable?
+						Banzhaf power index of state - 8.5%, calculated from banzhaf algo
+						BPI per person - 4.1e-5, calculated inline
+						BPI per voter - 8.1e-5, calculated inline
+						Individual voting power (this is the one I gotta look into)
+
+						Reset button (to original numbers in table)
+						Button to recalculate and update map
+
+						UPDATED August 6, 2020 (or whatever)
+
+					</section>
+
+				<!-- Main -->
+				<!-- this will be filled in by banzhaf-inject-html.js -->
+					<div id="main">
+							<!-- Intro -->
+							<section id="intro" class="major">
+							</section>
+
+							<!-- Algorithm -->
+							<section id="algorithm" class="major">
+							</section>
+
+							<!-- Probabilistic -->
+							<section id="probabilistic" class="major">
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<input type="submit" value="Sources" class="small" onclick="hideShowSources();"/>
+							<div class="table-wrapper" id="sources" style="display:none">
+								<table>
+									<tbody>
+										<tr>
+											<td>Overview</td>
+											<td><a href="https://www.debt.org/tax/brackets/">The greatest page on Wikipedia: Banzhaf Power Index</a></td>
+										</tr>
+										<tr>
+											<td>Federal Budgets</td>
+											<td><a href="https://www.cbo.gov/publication/56324">Shebby-shev calculation wikipedia - similar</a></td>
+										</tr>
+										<tr>
+											<td>Federal Budgets</td>
+											<td><a href="https://www.usaspending.gov/#/explorer/budget_function">270towin.com, reliable polling average</a></td>
+										</tr>
+										<tr>
+											<td>Icons</td>
+											<td><a href="https://www.icons8.com/">Source for number of voters</a></td>
+										</tr>
+								</table>
+							</div>
+							<p></p> <!-- this is for spacing... yikes, I know -->
+							<ul class="icons">
+								<li><a href="../assets/Randolph.Resume.pdf" download="Randolph.Resume.pdf" class="icon alt fa-file"><span class="label">Resume</span></a></li>
+								<li><a href="https://github.com/John0Randolph" class="icon alt fa-github"><span class="label" style="color:black;">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/randolph-john/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="mailto:john_randolph@brown.edu" class="icon alt fa-envelope"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; John Randolph 2020</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="banzhof-inject-html.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
