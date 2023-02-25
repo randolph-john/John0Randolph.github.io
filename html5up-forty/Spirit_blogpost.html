@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>John G Randolph</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="icon" type="image/jpg" href="../images/thumbsup_smallest.jpg"/>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="../index.html" class="logo">John <span>G <strong>Randolph</strong></span> .com</a>
+						<nav>
+							<a href="../blog_home.html">Blog home</a>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<img style="float:right" width="300em" src="../images/spirit_blog_post/spirit_graphic.png" alt="spirit graphic">
+								<h1 style="font-size:2.5em">The <strong> Spirit Ranking Fallacy </strong><br />
+								<span style="font-size:.585em">Why spirit rankings are often <strong>statistically meaningless</strong></span></h1>
+								<ul class="actions">
+									<li><a href="#main" id="enter-tax" class="button large next scrolly" onclick='onStart();'>Read</a></li>
+								</ul>
+						</div>
+
+					</section>
+
+				<!-- this will be filled in by inject-html.js -->
+					<section id="main" class="major">
+						<div class="inner">
+						<h2>Intro</h2>
+						<p>
+							There are a few lines of criticism often levied at spirit scores in ultimate, and at spirit more generally.
+							The definition of spirit varies between communities and between cultures (
+								<a href="https://ultiworld.com/2016/01/05/ultimate-2030-difference-spirit-sportsmanship/">Link 1</a>,
+								<a href="https://ultiworld.com/2022/04/19/reforming-spirit-of-the-game-six-steps-to-consider/">Link 2</a>
+							).
+							Losers receive, on average, higher spirit scores by half a point to a point (
+								<a href="http://www.slabbe.org/blogue/2022/10/are-losers-more-spirited-in-ultimate-a-data-analysis-based-on-1500-games-played-during-wmucc-wucc-and-cuc-2022/">Link</a>
+							).
+							Spirit introduces and reinforces racial issues (
+								<a href="https://ultiworld.com/2018/03/12/ultimate-race-spirit-game/">Link 1</a>,
+								<a href="https://ultiworld.com/2021/04/05/black-players-sharing-their-experience/">Link 2</a>
+							).
+						</p>
+						<p>
+							This blog post is not concerned with any of those complaints. It is concerned with the fact that in many cases,
+							when we rank teams on their spirit, we may not have
+							enough data points to tell whether that ranking is accurate. After many tournaments, rankings of team spirit
+							are publicized, and at some tournaments, such as USAU nationals, spirit winners are celebrated and awarded medals.
+							But most tournaments only involve 5-8 games played. How much can we trust the average of spirit scores from
+							that size sample set?
+						</p>
+						<h2>The power of spirit scores</h2>
+						<p>
+							We'll use the spirit scores from 2022 Club nationals as our test case. Those spirit scores are available in
+							full thanks to USAU
+							<a href="https://docs.google.com/spreadsheets/d/1OFWVvV_8nn9LD5SoIeCWOmWMMj2yxCFTJ98X9D-_QWo/edit#gid=0"> here </a>
+							. The team scores range from 12.29 to 9.0 and the scores from individual games
+							range from 4 to 20. The mean score was 10.17. Here is each team's average score:
+						</p>
+						<figure>
+							<img style="text-align:center" width="600em" src="../images/spirit_blog_post/ScoreSummary.png" alt="Deviation from team avg histogram">
+							<figcaption>Summary of spirit scores from club nationals 2022.</figcaption>
+						</figure>
+						<p>
+							It would be natural to look at these results and conclude that Mad Men, BFG, and Flipside were each the
+							most spirited team in their division, while Sockeye, Red Flag, and Traffic were the least spirited.
+							But it's easy for humans be overconfident about data with few data points, so we need to ask: are the
+							differences in spirit scores between teams statistically significant?
+						</p>
+						<p>
+							We'll test this with simple t-tests between team averages. This type of test makes three assumptions.
+							<ol>
+								<li>
+									The games are a random sample. This could be false - for example, if there is a positive correlation
+									between team finish and spirit then the lower finishing teams would play games skewed towards lower spirited
+									teams. But I think this is a very reasonable assumption.
+								</li>
+								<li>
+									Observations are independent.
+								</li>
+								<li>
+									The sample distribution is normal. I think this is close enough to true to be a reasonable assumption. Here's a graph of the distribution of scores:
+								</li>
+							</ol>
+						</p>
+						<figure>
+							<img style="text-align:center" width="600em" src="../images/spirit_blog_post/DeviationTeamAverage.png" alt="Deviation from team avg histogram">
+							<figcaption>Distribution of individual spirit scores relative to the team's average score</figcaption>
+						</figure>
+						<p>
+							To be clear on the way we're modeling the problem, we're assuming that each team has a baseline spirit,
+							which can also be thought of as their average spirit, and that in each game they deviate somewhat from this.
+							There may also be random bias from the team reporting/observing their spirit. Then, spirit scores are
+							unbiased estimates of the true spirit score.
+						</p>
+						<h2>Club Nationals 2022</h2>
+						<p>
+							So let's see what happens when we apply this framework to club nationals 2022. We proceed by comparing each
+							team's spirit to the spirit of each other team in their division. Here are the results, with differences
+							that are significant (p &#60= .05) highlighted in green.
+						</p>
+						<figure>
+							<img style="text-align:center" width="1000em" src="../images/spirit_blog_post/Mens2022.png" alt="Deviation from team avg histogram">
+							<figcaption>Men's spirit scores from club nationals 2022, with p value (p &#60= .05), i.e. statistically significant difference, in green.</figcaption>
+						</figure>
+						<figure>
+							<img style="text-align:center" width="1000em" src="../images/spirit_blog_post/Mixed2022.png" alt="Deviation from team avg histogram">
+							<figcaption>Mixed spirit scores from club nationals 2022, with p value (p &#60= .05), i.e. statistically significant difference, in green.</figcaption>
+						</figure>
+						<figure>
+							<img style="text-align:center" width="1000em" src="../images/spirit_blog_post/Womens2022.png" alt="Deviation from team avg histogram">
+							<figcaption>Women's spirit scores from club nationals 2022, with p value (p &#60= .05), i.e. statistically significant difference, in green.</figcaption>
+						</figure>
+						<p>
+							The first thing that jumps out is that it there are very few statistically significant differences.
+							We can, for example, say it is quite likely that Sockeye, the lowest spirit finisher in the Men's division,
+							has a lower average spirit than Mad Men, the highest spirit finisher. But almost no other differences are
+							significant. We can't even be sure that the highest spirit finisher in either other division has better
+							baseline spirit than the lowest spirit finisher.
+						</p>
+						<h2>Club nationals 2017</h2>
+						<p>
+							It's hard to write a blog post about spirit without making mention of Florida. Surely some teams have
+							such outlier spirit that we can find statistically significant differences between their nationals spirit
+							scores and those of other teams, right? We'll look at an extreme example: the
+							<a href="https://ultiworld.com/2017/10/21/slugfest-start-doublewide-tops-florida-united-quarters/">infamous Florida United Team at Club nationals 2017 </a>
+							That year, Florida United finished last with spirit scores of 7, 5, 8, 6, 4, and 10, for an average of 6.7.
+							Also in 2017, Johnny Bravo had an unusually high spirit score of 14.9. We'll run the same test on the
+							men's division of club nationals 2017. Here are the results:
+						</p>
+						<figure>
+							<img style="text-align:center" width="1000em" src="../images/spirit_blog_post/Mens2017.png" alt="Deviation from team avg histogram">
+							<figcaption>Men's spirit scores from club nationals 2017, with p value (p &#60= .05), i.e. statistically significant difference, in green.</figcaption>
+						</figure>
+						<p>
+							This is a little different! Florida United has a statistically significant lower spirit score than
+							every other team, with the exception of PoNY. This is due not only to their low average but that their scores
+							were consistently low, as their highest score is only 3.3 higher than their average (std dev 2.1). Johnny Bravo
+							only has a statistically significant difference from 4 other teams despite having an average score nearly as far
+							from the mean as Florida United (4.08 vs 4.11). This is because their scores had more variance: 12, 20, 20,
+							11, 11, 10, 20, (std dev = 4.8).
+						</p>
+						<h2>Conclusion</h2>
+						<p>
+							This is not to say that Mad Men was not the most spirited team in their division, nor that Red Flag was not
+							the least spirited team in their division. Both of those things may very well be true - but the small number
+							of spirit scores collected at 2022 club nationals don't strongly support that claim (though they do supply some
+							evidence). To make that argument, you'd need to rely on something else, whether that is personal experience or
+							a larger set of data points.
+						</p>
+						<p>
+							Maybe we should do away with awarding spirit trophies to teams at
+							tournaments with only six games. Maybe we should collect spirit scores for all games throughout a whole season.
+							Maybe Mitch Dengler should be running t-tests during timeouts. But as it stands, the system of awarding a trophy
+							to a somewhat randomly determined team as if they are a paragon of spirit is foolish and not mathematically sound.
+						</p>
+
+						<h4>
+							Links
+						</h4>
+						<ul>
+							<li><a href="https://docs.google.com/spreadsheets/d/1OFWVvV_8nn9LD5SoIeCWOmWMMj2yxCFTJ98X9D-_QWo/edit#gid=0">2022 club nationals scores</a></li>
+							<li><a href="https://docs.google.com/spreadsheets/d/1qnTWqC3p7pGRu4vnljNOdXOrqDRpiPmOfAaqCPI-8oo/edit#gid=0">2017 club nationals scores</a></li>
+							<li><a href="https://docs.google.com/spreadsheets/d/1Iamv46eWjLkKsgP4QV-4whutFpC1IdqdFNqk02r-bF4/edit#gid=1872485474">2022 club nationals scores refactored</a></li>
+							<li><a href="https://colab.research.google.com/drive/1JWkGjv2ILdzMJDLfb_moYeI_gXQqUJlV?usp=sharing">Code</a></li>
+						</ul>
+					</div>
+					<!--JR TODO: add footnote!-->
+					</section>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<input type="submit" value="Sources" class="small" onclick="hideShowSources();"/>
+							<div class="table-wrapper" id="sources" style="display:none">
+								<table>
+									<tbody>
+										<tr>
+											<td>Overview</td>
+											<td><a href="https://www.debt.org/tax/brackets/">The greatest page on Wikipedia: Banzhaf Power Index</a></td>
+										</tr>
+										<tr>
+											<td>Federal Budgets</td>
+											<td><a href="https://www.cbo.gov/publication/56324">Shebby-shev calculation wikipedia - similar</a></td>
+										</tr>
+										<tr>
+											<td>Federal Budgets</td>
+											<td><a href="https://www.usaspending.gov/#/explorer/budget_function">270towin.com, reliable polling average</a></td>
+										</tr>
+										<tr>
+											<td>Icons</td>
+											<td><a href="https://www.icons8.com/">Source for number of voters</a></td>
+										</tr>
+								</table>
+							</div>
+							<p></p> <!-- this is for spacing... yikes, I know -->
+							<ul class="icons">
+								<li><a href="../assets/Randolph.Resume.pdf" download="Randolph.Resume.pdf" class="icon alt fa-file"><span class="label">Resume</span></a></li>
+								<li><a href="https://github.com/randolph-john" class="icon alt fa-github"><span class="label" style="color:black;">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/randolph-john/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="mailto:john_randolph@brown.edu" class="icon alt fa-envelope"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; John Randolph 2020</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="banzhof-inject-html.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
