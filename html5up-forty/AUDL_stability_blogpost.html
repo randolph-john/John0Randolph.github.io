@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>John G Randolph</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="icon" type="image/jpg" href="../images/thumbsup_smallest.jpg"/>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="../index.html" class="logo">John <span>G <strong>Randolph</strong></span> .com</a>
+						<nav>
+							<a href="../blog_home.html">Blog home</a>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<img style="float:right" width="300em" src="../images/audl_stability_blog_post/AUDL_logo.png" alt="spirit graphic">
+								<h1 style="font-size:2.5em"><strong> AUDL </strong> Roster Flux<br />
+								<span style="font-size:.585em">How stable is the AUDL's talent pool?</span></h1>
+								<ul class="actions">
+									<li><a href="#main" id="enter-tax" class="button large next scrolly" onclick='onStart();'>Read</a></li>
+								</ul>
+						</div>
+
+					</section>
+
+				<!-- this will be filled in by inject-html.js -->
+					<section id="main" class="major">
+						<div class="inner">
+						<h2>Intro</h2>
+						<p>
+							From my point of view, it appears that the talent in the AUDL has risen gradually over the ten years of its
+							existence. The league has managed to draw top players and now most top male players play in the
+							AUDL. In this vein, that means that the talent should be somewhat stable - generally, players should leave the 
+							league when they retire or are displaced by newer players, and newer players should enter the league when they
+							hae the requisite skills. Another way to state this is if you are drawing from a larger
+							group of less talented players (as the AUDL did in the earlier years of its existence), there usually can
+							be more roster changes year to year. It seems that with more and more of the top players playing in the AUDL, the talent
+							should become more static; that is, the same players should stay in the league year after year (for the most part).
+						</p>
+						<p>
+							However, I have no data to back this up. In this blog post I'll examine the stability of the the player
+							makeup of the AUDL.
+						</p>
+						<h2>Teams</h2>
+						<p>
+							The number of teams in the AUDL mostly stabilized after the firs three years. The makeup of the teams in
+							the AUDL is summarized in the below table. I'm taking this data from
+							<a href="https://www.reddit.com/r/ultimate/comments/17r4sen/audl_history_timeline/">this great reddit post</a>.
+						</p>
+						<table border="1">
+							<tr>
+								<th>Year</th>
+								<th>Teams</th>
+								<th>Expansion Teams</th>
+								<th>Folds</th>
+							</tr>
+							<tr>
+								<td>2012</td>
+								<td>8</td>
+								<td>8</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>2013</td>
+								<td>12</td>
+								<td>7</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>2014</td>
+								<td>17</td>
+								<td>6</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>2015</td>
+								<td>25</td>
+								<td>9</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>2016</td>
+								<td>26</td>
+								<td>2</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>2017</td>
+								<td>24</td>
+								<td>0</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>2018</td>
+								<td>23</td>
+								<td>0</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>2019</td>
+								<td>21</td>
+								<td>0</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>2021</td>
+								<td>22</td>
+								<td>1</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>2022</td>
+								<td>25</td>
+								<td>3</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>2023</td>
+								<td>24</td>
+								<td>1</td>
+								<td>2</td>
+							</tr>
+						</table>
+						<h2>Players</h2>
+						<p>
+							Let's look the composition of the league in terms of players. Thanks to the
+							<a href="https://pypi.org/project/audl">AUDL stats API</a>, this is fairly easy.
+						</p>
+						<p>
+							First, we'll look at the composition of the league over time.
+						</p>
+						<figure>
+							<img style="text-align:center" width="600em" src="../images/audl_stability_blog_post/number_of_players.png" alt="Line graph of number of players in the AUDL over time">
+						</figure>
+						<p>
+							A few takeaways:
+							<ul>
+								<li>
+									The number of returning players has gradually increased
+								</li>
+								<li>
+									The total number of players has increased. I wonder if the number of
+									players per team has increased. It turns out it has: 
+									<figure>
+										<img style="text-align:center" width="450em" src="../images/audl_stability_blog_post/players_per_team.png" alt="Line graph of number of players per teamover time">
+									</figure>			
+								</li>
+								<li>
+									There still are significant numbers of players joining non-expansion
+									AUDL teams every year
+								</li>
+							</ul>
+						</p>
+						<p>
+							Let's look at the percent of players who are new over time.
+						</p>
+						<figure>
+							<img style="text-align:center" width="600em" src="../images/audl_stability_blog_post/percent_of_players.png" alt="Line graph of number of players in the AUDL over time">
+						</figure>
+						<p>
+							Surprisingly, when expansion teams are removed, the percent of new players on a team has been relatively
+							stable at about 40% since the league's founding. I would have expected this number to have decreased over time.
+						</p>
+						<p>
+							In contrast, the NBA has
+							<a href="https://weaksideawareness.wordpress.com/2011/11/22/average-nba-career-length-for-players-details/">approximately 500 players each season and takes in about 70 new ones,</a>
+							meaning about 14% of the league is new each year (note that this isn't exactly right as there are
+							some oddities in terms of bringing players up from the G-league, etc, but they are correct enough for
+							our purposes).
+						</p>
+						<h2>Conclusion</h2>
+						<p>
+							My intuition was wrong. The AUDL's talent pool has not gotten more stable over the course of its existence.
+						</p>
+						<p>
+							I still think this could change moving forwards. The AUDL has not managed to get all of the top talent
+							in the US, and their franchises still fold and spring up anew regularly. As they move towards more
+							franchise stability and contracts keep getting sweeter, I would expect the talent to be less in flux
+							moving forward. However, only time will tell.
+						</p>
+						<h4>
+							Links
+						</h4>
+						<ul>
+							<li><a href="https://www.reddit.com/r/ultimate/comments/17r4sen/audl_history_timeline/">Infographic of the timeline of AUDL teams</a></li>
+							<li><a href="https://pypi.org/project/audl">AUDL stats API</a></li>
+							<li><a href="https://weaksideawareness.wordpress.com/2011/11/22/average-nba-career-length-for-players-details/">NBA data</a></li>
+							<li><a href="https://colab.research.google.com/drive/1cDYy8x4bMWC8tCHp5KSzRsok19lRFJp5?usp=sharing">Code</a></li>
+						</ul>
+					</div>
+					<!--JR TODO: add footnote!-->
+					</section>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<p></p> <!-- this is for spacing... yikes, I know -->
+							<ul class="icons">
+								<li><a href="../assets/Randolph.Resume.pdf" download="Randolph.Resume.pdf" class="icon alt fa-file"><span class="label">Resume</span></a></li>
+								<li><a href="https://github.com/randolph-john" class="icon alt fa-github"><span class="label" style="color:black;">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/randolph-john/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="mailto:john_randolph@alumni.brown.edu" class="icon alt fa-envelope"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; John Randolph 2023</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="banzhof-inject-html.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
