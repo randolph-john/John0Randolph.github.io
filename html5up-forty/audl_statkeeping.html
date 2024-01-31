@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>John G Randolph</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="icon" type="image/jpg" href="../images/logo3.png"/>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="../index.html" class="logo">John <span>G <strong>Randolph</strong></span> .com</a>
+						<nav>
+							<a href="../blog_home.html">Blog home</a>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<img style="float:right" width="300em" src="../images/audl_stability_blog_post/AUDL_logo.png" alt="image">
+								<h1 style="font-size:2.5em">AUDL <strong> statkeeping </strong> issues <br />
+								<span style="font-size:.585em">The holes and places for improvement in the AUDL's stats</span></h1>
+								<ul class="actions">
+									<li><a href="#main" id="enter-tax" class="button large next scrolly" onclick='onStart();'>Read</a></li>
+								</ul>
+						</div>
+
+					</section>
+
+				<!-- this will be filled in by inject-html.js -->
+					<section id="main" class="major">
+						<div class="inner">
+						<h2>Intro</h2>
+						<p>
+							The AUDL tracks more stats than anybody else in Ultimate. What's more is they track these stats completely,
+                            i.e. for every player in every game, which makes statistical analysis and learnings a lot more possible than was
+                            previously true. These stats have already started to enable new understandings of Ultimate in a few places
+                            (<a href="https://invertedpivot.com/audl">one</a>, <a href="https://hirosme.shinyapps.io/UltiMaps/">two</a>).
+                            Yardage and field position is particularly useful.
+						</p>
+
+                        <p>
+                            This post is not an indictment of AUDL's state-of-the-art (within Ultimate) statkeeping, but instead a list of
+                            suggestions. There are a few ways that the AUDL (along with other Ultimate beancounting organizations) could
+                            easily improve their statkeeping. I divide these changes into two categories: directly counted stats, and
+                            indirect metrics that are calculated after the fact.
+                        </p>
+                        <h2>
+                            Direct Statkeeping Changes
+                        </h2>
+                        <p>These are all changes to the ways that statkeepers record stats. None of them are new stats.</p>
+                        <h3>Yardage from end destination</h3>
+                        <p>
+                            <strong>Change </strong>
+                            <br>
+                            Currently, yardage is recorded from the spot where the catch happens. It should be recorded from the place
+                            where the receiver stops running and sets his pivot.
+                            <br>
+                            <strong>Reasoning </strong>
+                            <br>
+                            The place where the disc ends up after the receiver stops fully includes all the yardage someone is responsible
+                            for, whether he is throwing or receiving. If you throw someone a so-called fifteen-yard under, by the time the
+                            receiver has come to a stop, it's more like a seven-yard under. It also makes a huge difference whether a receiver's
+                            momentum is towards the sideline or the middle of the field when they catch the disc in the same spot. Statkeeping
+                            should reflect this.
+                            <br>
+                            <strong>Impact </strong>  &#129359; &#129359; / 5
+                            <br>
+                            The only real difference in stats would be among players who throw relatively many or few uplines and hucks compared to
+                            unders and swings. I hypothesize this change to be small as I bet that there is not much variance between
+                            the distribution of types of throws that different players complete.
+                            <br>
+                        </p>
+                        <h3>Yards on Throwaways</h3>
+                        <p>
+                            <strong>Change </strong>
+                            <br>
+                            The yards you gain (or lose) on a throwaway should be recorded just like any other yards.
+                            <br>
+                            <strong>Reasoning </strong>
+                            <br>
+                            When you throw a turn, you gain or lose yards for your team, just like any other throw. If I throw a sixty
+                            yard turnover, then the other team has a zero-yard possession, and then I throw a ten-yard completion, we're in
+                            the same position as if I throw a ten-yard turnover, the other team has a zero-yard possession, and then I throw a
+                            sixty yard completion - why is one situation recorded as one turn and ten throwing yards, and the other is recorded as one
+                            turn and sixty throwing yards? In both cases I have thrown one turnover and advanced the disc seventy yards.
+                            Yards from turnovers are just as legitimate as yards from completions and it's mind-boggling that they're not tracked.
+                            <br>
+                            <strong>Impact </strong>  &#129359; &#129359; &#129359; / 5
+                        </p>
+                        <h3>Turnovers Forced</h3>
+                        <p>
+                            <strong>Change </strong>
+                            <br>
+                            Any block that you're responsible for should be recorded, whether or not you touch the disc.
+                            <br>
+                            <strong>Reasoning </strong>
+                            <br>
+                            A hand block is the same as forcing the thrower to throw it into the ground. A deep block is the same as forcing
+                            a receiver to go up too early and miss it. Getting a flesh-on-plastic block on the dump is the same as forcing an overthrow on
+                            a swing. The downside here is that this puts more responsibility into the hands of statkeepers who must make
+                            more subjective decisions, but I think that is a worthwhile tradeoff (and if this was a big worry, we could record
+                            disc-touching blocks versus non-disc-touching blocks).
+                            <br>
+                            <strong>Impact </strong>  &#129359; &#129359; &#129359; &#129359; &#129359;/ 5
+                            <br>
+                            Getting turnover-causing more correctly recorded would shift our understanding of what is important in defense.
+                            I think there are players who skew dramatically towards forcing turnovers where they don't turn over the disc
+                            and players who skew dramatically the opposite way. Right now, the players who are most overrepresented in
+                            getting blocks are the players who can <em>only</em> get blocks by touching the disc, which makes me think that smarter
+                            players and players who play “lockdown” defense are undervalued.
+                            <br>
+                        </p>
+                        <h2>
+                            Calculated Metrics Changes
+                        </h2>
+                        <p>There are a couple nice-to-haves that would be very easy to incorporate to the site without having to take additional stats.</p>
+                        <h3>Remove Plus-Minus</h3>
+                        <p>
+                            <strong>Change </strong>
+                            <br>
+                            Plus minus should be removed.
+                            <br>
+                            <strong>Reasoning </strong>
+                            <br>
+                            Plus minus is a truly insane stat. Why would a goal be equal in value to a block and both equal to
+                            a turnover? It's bonkers on its face and obviously biased (at the level of the AUDL) towards goals and assists and
+                            away from blocks and turnovers. Nobody would ever want a player on their team who scores five goals but throws three
+                            turnovers per game, but someone who gets 5 blocks per game and throws 3 turnovers would be the unanimous league MVP
+                            - yet these players have identical plus minus. Plus minus does nothing but confuse viewers and encourage us to
+                            to ignore stats that contain meaning. It's the opium of the masses. In my opinion plus minus only
+                            exists to satisfy the lazy statistician's appetite to sum up all of performance into one number. I'll probably make
+                            a separate blog post about the failure of plus minus, why it still exists, and how we can fix it.
+                            <br>
+                            <strong>Impact </strong>  &#129359; / 5
+                            <br>
+                            This change wouldn't add any information. And anyone who knows anything about stats is already ignoring plus minus, anyway.
+                            <br>
+                        </p>
+                        <h3>Confidence Intervals</h3>
+                        <p>
+                            <strong>Change </strong>
+                            <br>
+                            Every stat should have confidence intervals.
+                            <br>
+                            <strong>Reasoning </strong>
+                            <br>
+                            Why should anyone care if some player has a completion percentage higher than someone else if there does not exist a
+                            statistically significant difference between the two numbers? Some reported stats do contain cutoffs as a proxy for
+                            statistical significance (for example, the league often cites stats such as “highest huck completion - minimum 10 hucks”).
+                            Everyone knows that someone with a 100% completion rate but who has only thrown two throws all season should not be
+                            regarded as the most reliable thrower in the AUDL, but can we say for sure, for example, that the thrower who completed 98.84%
+                            of his 172 throws has a better completion rate than the thrower who completed 98.70% of his 77 throws (those are the two
+                            completion percentage leaders for players with a sub-100 percent completion percentage)? The solution is confidence
+                            intervals (or, alternately, p-values when comparing players).
+                            <br>
+                            <strong>Impact </strong>  &#129359; &#129359; / 5
+                            <br>
+                            I would still expect most people to ignore the confidence intervals.
+                            <br>
+                        </p>
+                        <h3>Expected Number of Goals Contributed</h3>
+                        <p>
+                            <strong>Change </strong>
+                            <br>
+                            Introduce a stat representing how much a player's throwing and receiving changed their team's expected number of goals.
+                            <br>
+                            <strong>Reasoning </strong>
+                            <br>
+                            It's relatively straightforward to calculate a reasonable estimate for the expected number of goals per point at
+                            any point on the field (for example, see <a href="https://hirosme.shinyapps.io/UltiMaps/">this webapp</a>). This would only have to be done once.
+                            Then, throws can be understood as changes in expected goals - if you throw a huck from your own endzone to the
+                            doorstep of the other, your percent chance of scoring goes way up; if you throw a swing to the sideline, your percent
+                            chance of scoring goes down; if you throw a goal, your percent chance of scoring becomes 100%, which correctly captures
+                            how valuable scoring is. With the change in expected value for each throw, including turnovers
+                            (your expected goals per point is the inverse of your opponent's same), we can sum up offensive contribution over
+                            a point, game, or season, separating out (as with yards) into throwing and receiving contribution.
+                            <br>
+                            One downside is that the estimate of expected number of goals at any point on the field is imperfect - different teams have
+                            different distributions and other factors such as throwing to different players changes the expected value, but narrowing our
+                            dataset to account for these factors likely leaves us with not enough confidence.
+                            <br>
+                            This change would take some effort to build compared to the other changes mentioned in this post. But it would be a valuable
+                            model we can use to more thoroughly evaluate players and their contributions.
+                            <br>
+                            <strong>Impact </strong>  &#129359; &#129359; &#129359; / 5
+                            <br>
+                            I predict this stat would be quite similar to yards per turn.
+                            <br>
+                        </p>
+                        <h3>Yards Per Turn</h3>
+                        <p>
+                            <strong>Change </strong>
+                            <br>
+                            Yards per turn should be calculated in addition to (or instead of) completion percentage.
+                            <br>
+                            <strong>Reasoning </strong>
+                            <br>
+                            This stat is extremely easy to calculate from existing stats, so much so that I and other elite players and coaches
+                            calculate it on an ad-hoc basis to find a better estimation of how offensively effective given players are than is 
+                            readily available on the AUDL stats website. It
+                            contains much more informative information than completion percentage, and thus is a much better proxy for offensive
+                            efficiency. Extreme examples: who cares if someone has a 99% completion rate if they only throw it backwards? I'd
+                            rather take someone with a 98% completion rate who only throws seventy-yard goals.
+                            <br>
+                            <strong>Impact </strong>  &#129359; &#129359; &#129359; &#129359; &#129359; / 5
+                            <br>
+                            This should supplant completion percentage.
+                            <br>
+                        </p>
+                        <h2>
+                            Conclusion
+                        </h2>
+                        <p>
+                            Every one of these changes (besides expected number of goals contributed) is overwhelmingly simple to implement and
+                            would make the statistics on AUDL's website more informative. In making these changes, the AUDL can continue to push
+                            forward the state of Ultimate statkeeping.
+                        </p>
+						</p>
+					</div>
+					</section>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="../assets/Randolph.Resume.pdf" download="Randolph.Resume.pdf" class="icon alt fa-file"><span class="label">Resume</span></a></li>
+								<li><a href="https://github.com/randolph-john" class="icon alt fa-github"><span class="label" style="color:black;">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/randolph-john/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="mailto:john_randolph@alumni.brown.edu" class="icon alt fa-envelope"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; John Randolph 2023</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="banzhof-inject-html.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
