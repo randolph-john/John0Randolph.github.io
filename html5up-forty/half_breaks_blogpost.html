@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>John G Randolph</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="icon" type="image/jpg" href="../images/logo3.png"/>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="../index.html" class="logo">John <span>G <strong>Randolph</strong></span> .com</a>
+						<nav>
+							<a href="../blog_home.html">Blog home</a>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<img style="float:right" width="300em" src="../images/scoreboard.png" alt="image">
+								<h1 style="font-size:2.5em"> The <strong> half-break </strong> system <br />
+								<span style="font-size:.585em"> And why it is superior to <strong>full-break</strong> terminology </span></h1>
+								<ul class="actions">
+									<li><a href="#main" id="enter-tax" class="button large next scrolly" onclick='onStart();'>Read</a></li>
+								</ul>
+						</div>
+
+					</section>
+
+				<!-- this will be filled in by inject-html.js -->
+					<section id="main" class="major">
+						<div class="inner">
+						<h2>Intro</h2>
+                        <p>
+                            Picture the following scenario. It should be familiar if you've been to a bunch of frisbee tournaments.
+                        </p>
+                        <p>
+                            You walk up to a field to watch what looks like a tight, heated game. You ask, “who's up?” Someone
+                            says that the game is on serve. The problem here is that
+                            <span style="font-weight:bold;">your question hasn't been answered</span>. If the
+                            game continues as is (i.e., no more breaks), one of the two teams will win, but you haven't been told who.
+                        </p>
+                        <p>
+                            Luckily, someone else says that the first person was wrong. They say that team A is winning. “How much
+                            are they winning by?” you ask. The person says that Team A is up by 1 break. Again,
+                            <span style="font-weight:bold;">your question hasn't been answered</span>.
+                            Team A could be up by 0, 1, or 2 points at the given moment.
+                        </p>
+                        <p>
+                            The above situation is why many players and coaches use half-break terminology. However, what
+                            should be standard terminology isn't universal and furthermore isn't fully understood by some players. The goal of
+                            this blog post is to explain the half-break system and why it is a serious upgrade over talking in full breaks.
+                        </p>
+                        <h2>The issue with full breaks</h2>
+                        <p>
+                            Before we can introduce half breaks, let's discuss the problems caused by using full-break terminology.
+                        </p>
+                        <p>
+                            The central issue with describing a game state using full breaks is that it fails to adequately
+                            communicate the state of the game. This shortcoming stems from the (unintuitively) faulty
+                            premise that when the both teams have the same score (such as at 0-0), the game is tied. That, however
+                            isn't true, because one team is receiving, which is an advantage equal to one half of a break.
+                        </p>
+                        <p>
+                            Put differently: there is never a “tied” situation in ultimate because there is always a team that
+                            will win if there are no more breaks (or, if you rather, are no more turnovers). At 13-13,
+                            it is obvious that the team receiving has an advantage, but this is just as true at 0-0.
+                        </p>
+                        <p>
+                            Let's dive deeper into the lack of clarity provided by full-break terminology. Consider that all
+                            you know about the game state is that Team A is up by 1 (resp. n) breaks and that it is the second
+                            half of the game, which is a common situation. There are a few series of events that could have
+                            led to this.
+                        </p>
+                        <ol>
+                            <li>
+                                Team A started on offense, then broke 1 (resp. n) time at any point during the game. Then, they
+                                are up by 1 or 2 (resp. n or n+1) points. On the points when they start on offense, they're up by
+                                1 (resp. n), and when they start on defense, they're up by 2 (resp. n+1).
+                            </li>
+                            <li id="footnote-1-reference">
+                                Team A started on defense, then broke 1 (resp. n) time in the first half. Likewise, they are
+                                up by 1 or 2 (resp. n or n+1) points <a href="#footnote-1">[1]</a>.
+                            </li>
+                            <li>
+                                Team A started on defense, then broke 1 (resp. n) time in the second half. They are up by 0 or
+                                1 (resp. n-1 or n) points.
+                            </li>
+                        </ol>
+                        <p>
+                            From enumerating these situations it is clear that Team A can be ahead by 0, 1, or 2 (resp. n-1, n, n+1)
+                            points while being ahead by 1 (resp. n) break.
+                        </p>
+                        <h2>
+                            The solution: half-breaks
+                        </h2>
+                        <p>
+                            Half-break terminology solves these issues by explicitly and correctly stating who is ahead, and by how
+                            much. When a team is ahead by 0 points when on offense and 1 point when receiving, that team is up half
+                            a break (and the other team is down by half a break). When a team is ahead by 3 to 4 points, that team
+                            is up by three-and-a-half breaks (and the other team is down by three-and-a-half breaks).
+                        </p>
+                        <p>
+                            Note that one team is <em>always</em> up; there are no ties in ultimate. Two teams having equal scores means
+                            that one team is up by half a break.
+                        </p>
+                        <p id="footnote-2-reference">
+                            Note also that in the first half, knowing which team started on offense or defense is still necessary
+                            to know the game outcome because that knowledge is necessary to know which team has the potential to
+                            earn the “double-break” by taking half after starting down half a break. This requirement is true when
+                            using full-break terminology, too <a href="#footnote-2">[2]</a>.
+                        </p>
+                        <h2>Conclusion</h2>
+                        <p>
+                            Let's return to our original example, this time using half-break terminology.
+                        </p>
+                        <p>
+                            You walk up to a field to watch what looks like a tight, heated game. You ask, “who's up?” Someone
+                            says that team A is up half a break.  <span style="font-weight:bold;">Your question has been answered</span>.
+                            If the game continues as is
+                            (i.e., no more breaks), you know that team A will win by 1 point. You look at the field - if team A
+                            is pulling, they are up by 1, and if they're receiving, they are up by 0.
+                        </p>
+                        <p>
+                            Someone else says that the first person was wrong. They say that team A is winning. “How much are they
+                            winning by?” you ask. The person says that team A is up by a break and a half. Again,
+                            <span style="font-weight:bold;">your question has been answered</span>. You look at the field and
+                            immediately know whether team A is up by 1 or 2 points, depending on whether they are pulling or receiving. 
+                        </p>
+                        <p>
+                            Full-break terminology is dead. Long live the half-break system!
+                        </p>
+
+                        <p id="footnote-1"><a href="#footnote-1-reference">[1]</a> Some would consider this being up by 2 breaks,
+                            as team A earned the so-called double-break by taking half after starting the game on defense.
+                            This is another source of ambiguity of full breaks that is clarified by using half breaks.
+						</p>
+                        <p id="footnote-2"><a href="#footnote-2-reference">[2]</a> And that's even if you can get straight whether a team who
+                            started pulling and netted one break in the first half is up by 1 break or 2 in the second half!
+						</p>
+
+					</div>
+					</section>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="../assets/Randolph.Resume.pdf" download="Randolph.Resume.pdf" class="icon alt fa-file"><span class="label">Resume</span></a></li>
+								<li><a href="https://github.com/randolph-john" class="icon alt fa-github"><span class="label" style="color:black;">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/randolph-john/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="mailto:john_randolph@alumni.brown.edu" class="icon alt fa-envelope"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; John Randolph 2023</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="banzhof-inject-html.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
