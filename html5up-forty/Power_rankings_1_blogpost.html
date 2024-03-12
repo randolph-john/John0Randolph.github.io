@@ -61,12 +61,13 @@
 							provided by tournaments should increase the precision of rankings as nationals approaches.
 						</p>
 						<p>
-							I also wonder about rankings between divisions. Are Men's or Women's more accurate (or the same)? D1 or D3? College or club?
+							I also wonder about rankings between divisions. Is the men's or women's division more accurate (or are they the same)? D1 or D3? College or club?
 						</p>
 						<h2>The approach</h2>
 						<p>
-							I'll explore these questions in a series of articles (hopefully). We'll start with one basic case, and probably
-							the best one: the Men's and Women's D1 college divisions. Using these divisions has a few advantages:
+							I'll dive in to a couple of these questions in this blog post. Hopefully one day I'll come back and expore more.
+							We'll start with one basic case, and probably
+							the best one: the men's and women's D1 college divisions. Using these divisions has a few advantages over other divisions:
 						</p>
 						<ul>
 							<li>
@@ -103,13 +104,13 @@
 								<span style="font-weight:bold;">Ultiworld's power rankings are not meant to be predictive of nationals finish. </span>
 								Maybe. Ultiworld doesn't say on their site exactly what the power rankings are meant to convey, but it's likely
 								that they are supposed to be predictions about the current strength of each team, ie if nationals was played on
-								the day of the prediction. But even if they're not meant to be predictive we can still evaluate how predictive they are.
+								the day of the prediction. Even if they're not meant to be predictive we can still evaluate how predictive they are.
 							</li>
 							<li>
 								<span style="font-weight:bold;">What metric do we use to evaluate the accuracy of predictions?</span>
 								<a href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient">Spearman's ranking correlation coefficient (Spearman's rho)</a>
 								is a widely-used measure of accuracy of ordinal rankings. In our setting, it only differs from
-								<a href="https://en.wikipedia.org/wiki/Mean_squared_error">Mean Squared Error</a>by a constant factor, so we'll use MSE,
+								<a href="https://en.wikipedia.org/wiki/Mean_squared_error">Mean Squared Error</a> by a constant factor, so we'll use MSE,
 								as it is easier to interpret.
 							</li>
 							<li>
@@ -120,7 +121,7 @@
 							</li>
 							<li>
 								<span style="font-weight:bold;">What about teams in Ultiworld's top 16 that don't qualify for nationals?</span>
-								We'll give them a ranking of 21. There's an argument to be had that this should be a bigger penalty, but oh well.
+								We'll give them a ranking of 21. There's is a valid argument to be had that this should be a bigger penalty, but at the end of the day this is an arbitrary judgement call.
 							</li>
 							<li>
 								<span style="font-weight:bold;">What about the 2020 and 2021 college seasons?</span>
@@ -135,7 +136,7 @@
 						</ul>
 						<h2>Results</h2>
 						<p>
-							These assumptions allow us to look at the accuracy over time of predictions in Ultiworld's power rankings for Men's and
+							These assumptions allow us to look at the accuracy over time of predictions in Ultiworld's power rankings for men's and
 							women's college teams from 2014 to 2023. We can scrape Ultiworld and run the numbers to generate the following graph. The
 							graph is below, with men's in red and women's in blue.
 						</p>
@@ -144,29 +145,63 @@
 							<!-- <figcaption>Scatterplot of the accuracy of Ultiworld's power rankings as predictions of nationals finish.</figcaption> -->
 						</figure>
 						<p>
-							There are a couple straightforward interesting takeaways:
+							There are a couple straightforward but interesting takeaways:
 						</p>
 						<ul>
 							<li>Predictions in the women's division are generally a bit more accurate than the men's division</li>
 							<li>In both divisions, predictions do get more accurate as nationals gets closer</li>
+							<li>By nationals, predictions in the men's division are nearly as accurate as predictions in the women's division</li>
 						</ul>
 						<p>
-							That's about all I can see to take away from this graph.
+							That's about all I can learn from this graph.
 						</p>
+						<h2>Ultiworld vs USAU rankings</h2>
+						<p>
+							We can repeat this procedure to compare USAU rankings with Ultiworld rankings. There are a couple of drawbacks with the 
+							USAU data:
+						</p>
+						<ul>
+							<li>USAU does not start ranking teams until the start of the spring season, so there are fewer rankings per season</li>
+							<li>USAU did not calculate rankings for the 2022 season, so we only have 6 years of data</li>
+						</ul>
+						<p>
+							Even so, there should be enough data. Here are three graphs, one which contains both divisions and two that 
+							each contain one division.
+						</p>
+						<figure>
+							<img style="text-align:center" width="1000em" src="../images/power_rankings_blog_post/BothBoth.png" alt="Scatterplot of power rankings accuracy">
+						</figure>
+						<figure>
+							<img style="text-align:center" width="1000em" src="../images/power_rankings_blog_post/BothMens.png" alt="Scatterplot of power rankings accuracy">
+						</figure>
+						<figure>
+							<img style="text-align:center" width="1000em" src="../images/power_rankings_blog_post/BothWomens.png" alt="Scatterplot of power rankings accuracy">
+						</figure>
+						<p>
+							Takeaways I see are:
+						</p>
+						<ul>
+							<li>USAU's rankings are consistently less accurate than Ultiworld's rankings - through the whole season, for both divisions</li>
+							<li>USAU's rankings get more accurate as the season goes on, as Ultiworld's do</li>
+							<li>Both USAU and Ultiworld rankings are less predictive in the men's divsion. Thus it appears the women's division is more predictable</li>
+							<li>USAU's accuracy at the end of the season is similar to Ultiworld's accuracy at the beginning of the season</li>
+						</ul>
+
 						<h2>Conclusion</h2>
 						<p>
-							There's a lot more to be done with this framework. A few ideas: how accurate is D1 vs D3; USAU rankings vs Ultiworld
-							rankings; club vs college? How much stability is there in each different division, over the course of the season and
+							There's a lot more to be done with this framework. A few ideas: how accurate is D1 vs D3; club vs college?
+							How much stability is there in each different division, over the course of the season and
 							over the course of multiple seasons? Does Ultiworld systematically over-rank or under-rank groups of teams such as
 							blue-blood teams, teams new on the scene, or teams from specific regions? Is there a way we can use the USAU and Ultiworld
-							rankings to come up with significantly more accurate predictions than either? Hopefully I'll follow up with blog posts
+							rankings to come up with significantly more accurate predictions than either? Hopefully I'll one day follow up with blog posts
 							exploring each those questions.
 						</p>
 						<h4>
 							Resources
 						</h4>
 						<ul>
-							<li><a href="https://colab.research.google.com/drive/1Zc54Jwjrf_bxaw9paa_rdrFCdNEnJYXD?usp=sharing">Code</a></li>
+							<li><a href="https://colab.research.google.com/drive/1Zc54Jwjrf_bxaw9paa_rdrFCdNEnJYXD?usp=sharing">Code (1)</a></li>
+							<li><a href="https://colab.research.google.com/drive/1vLSML5DO465xZviF1ZN_M9ugpBFheUQ_?usp=sharing">Code (2)</a></li>
 							<li><a href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient">Spearman's rho</a></li>
 							<li><a href="https://en.wikipedia.org/wiki/Mean_squared_error">Mean Squared Error</a></li>
 						</ul>
