@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>John G Randolph</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="icon" type="image/jpg" href="../images/logo3.png"/>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="../index.html" class="logo">John <span>G <strong>Randolph</strong></span> .com</a>
+						<nav>
+							<a href="../blog_home.html">Blog home</a>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<img style="float:right" width="300em" src="../images/USAUNationals2023Logo.png" alt="ultiworld graphic">
+								<h1 style="font-size:2.5em"><strong> Simulating</strong> USAU Nationals <br />
+								<span style="font-size:.585em">How random is USAU nationals?</span></h1>
+								<ul class="actions">
+									<li><a href="#main" id="enter-tax" class="button large next scrolly" onclick='onStart();'>Read</a></li>
+								</ul>
+						</div>
+
+					</section>
+
+				<!-- this will be filled in by inject-html.js -->
+					<section id="main" class="major">
+						<div class="inner">
+						<h2>Intro</h2>
+						<p>
+							The base idea behind this post is my desire to know how random USAU nationals are. Some sports leagues have a
+                            huge amount of variance in their postseason (NCAA's March madness) and some sports leagues have a lot less
+                            variance (the NBA playoffs). It's unclear where USAU nationals stands on this spectrum of volatility. This is
+                            also a particularly difficult problem to consider subjectively, since there is so much hindsight bias after the
+                            fact. After Brute Squad won this year (2023), for example, it's easy to look back on their season, read the signs
+                            of their impending success, and feel that it was inevitable all along - but it would have felt just as inevitable
+                            if Scandal had won.
+						</p>
+                        <p>
+                            There are a few different ways to approach this question. There's not a singular agreed-upon way to measure
+                            variance in sport (a couple of efforts:
+                            <a href="https://www.elderresearch.com/blog/how-often-does-the-best-team-win-the-title/">[1]</a>
+                            <a href="https://ecommons.luc.edu/cgi/viewcontent.cgi?article=1025&context=math_facpubs">[2]</a>) but a fun and
+                            interesting one is by simulating the tournament.
+                        </p>
+						<h2>Simulating nationals</h2>
+						<p>
+							One very nice advantage of USA's ranking algorithm is that we have Elo rankings for each team, from which we can directly
+                            obtain the expected chance that any given team will beat any other given team in a single game. The formula for this is P(A beats B) = 1 / (1 + 10^((Rank_B - Rank_A) / 400)).
+                            This makes simulating nationals straightforward: all we need to do is encode the format of
+                            the tournament and then we can randomly pick winners based on the Elo rankings for each matchup. We'll simulate
+                            the tournament 100,000 times for each division. In our approach, we won't update a team's Elo after a game, which we
+                            ideally should.
+						</p>
+                        <h2>Results</h2>
+						<p>
+							Here's the simulated win percentages for each team at 2023 club nationals. 
+						</p>
+						<figure>
+							<img style="text-align:center" width="1000em" src="../images/simulating_nationals_2023_output.png" alt="Screengrab of the percent chance of each team winning">
+						</figure>
+						<p>
+							I see a few takeaways:
+						</p>
+						<ul>
+							<li>The mixed division has the greatest distribution of potential winners, which matches up with the famous unpredictability of mixed nationals.</li>
+							<li>The women's division is the most stratified. The last-ranked team in mixed has a greater chance of winning the tournament than the eighth ranked women's team!</li>
+							<li>4 women's teams and 2 men's teams never won the tournament 100,000 simulations. This is surprising to me - I expected every team to have at least some chance.</li>
+                            <li>In this model, pool composition does not much matter. There are only two instances of a lower-Elo team (Traffic; Slow) having a higher chance of winning than a higher-Elo team due to a favorable pool and bracket path, and in both cases they have almost the same Elo ranking as the teams they leapfrog.</li>
+						</ul>
+						<h2>Conclusion</h2>
+						<p>
+							There's a lot more to be done with this framework. I'd like to dig into trends over time, find historically unlikely
+                            runs (and upsets), calculate the likelihood of a team making a certain round, and more. I think my ideal output would be a webapp that
+                            is released pre-nationals that gives live likelihoods of the nationals and that updates during nationals, like
+                            NCAA march madness brackets.
+						</p>
+						<h4>
+							Resources
+						</h4>
+						<ul>
+							<li><a href="https://colab.research.google.com/drive/1Wk93aey1X9k4535PK2dgILpBvZTaggUH?usp=sharing">Code</a></li>
+							<li><a href="https://docs.google.com/spreadsheets/d/1726gcBz0DGOaext-k7003Q4sblWGqrSYVGqBzJUZsZc/edit?usp=sharing">Output</a></li>
+							<li><a href="https://www.frisbee-rankings.com/usau/club/">Rankings + Elo</a></li>
+						</ul>
+
+						<p id="footnote-1"><a href="#footnote-1-reference">[1]</a> This an unproven belief of mine. It would be good to follow up and
+							compare the accuracy of the first ranking of the season of club teams vs the same of college teams.
+						</p>
+					</div>
+					</section>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="../assets/Randolph.Resume.pdf" download="Randolph.Resume.pdf" class="icon alt fa-file"><span class="label">Resume</span></a></li>
+								<li><a href="https://github.com/randolph-john" class="icon alt fa-github"><span class="label" style="color:black;">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/randolph-john/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="mailto:john_randolph@alumni.brown.edu" class="icon alt fa-envelope"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; John Randolph 2023</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="banzhof-inject-html.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
