@@ -62,7 +62,8 @@
 						<h2>Simulating nationals</h2>
 						<p>
 							One very nice advantage of USA's ranking algorithm is that we have Elo rankings for each team, from which we can directly
-                            obtain the expected chance that any given team will beat any other given team in a single game. The formula for this is P(A beats B) = 1 / (1 + 10^((Rank_B - Rank_A) / 400)).
+                            obtain the expected chance that any given team will beat any other given team in a single game.
+							The formula for this is \( P(A) = \frac{1}{1 + 10^{\frac{elo_B - elo_A}{400}}} \) .
                             This makes simulating nationals straightforward: all we need to do is encode the format of
                             the tournament and then we can randomly pick winners based on the Elo rankings for each matchup. We'll simulate
                             the tournament 100,000 times for each division. In our approach, we won't update a team's Elo after a game, which we
@@ -121,7 +122,6 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="banzhof-inject-html.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -129,5 +129,6 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+            <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	</body>
 </html>
