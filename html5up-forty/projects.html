@@ -50,14 +50,23 @@
 											<header class="major">
 												<h3>Banzhaf Power in Hierarchical Games</h3>
 											</header>
-											<p>For my thesis in applied math & computer science, I introduced an algorithm to calculate the Banzhaf Power Index in a hierarchical voting game with a runtime of 
-												O(NS 2<sup>S</sup>), where N is the number of players in the game and S is the branching factor in the game tree, an exponential improvement over the standard naive algorithm,
-												which has runtime O(N<sup>2</sup> 2<sup>N</sup>). I then applied the algorithm to 2 examples: French Senate elections and the importance of words in determining positive or negative sentiment in language.</p>	
-												<p>This work was published as part of <a href="https://www.aamas2024-conference.auckland.ac.nz/">AAMAS (International Conference on Autonomous Agents and Multiagent Systems) 2024.</a></p>
+											<p>
+												The Banzhaf Power Index (BPI) is a method of measuring the power of voters in determining the outcome of a hierarchical voting game.
+												BPI in hierarchical voting games can be computed via a recursive decomposition of the hierarchy, which can substantially reduce the calculation's complexity.
+												We identify a key (previously undocumented) assumption on which this decomposition is based, namely balance, then introduce a generalization of BPI that we call Extended BPI (EBPI) for all voting games, including those that are not balanced, which simplifies to BPI in balanced games.
+												We show that BPI in unbalanced hierarchical voting games decomposes in terms of EBPI at each level in the hierarchy, which yields analogous computational savings.
+												As a sample application, we model the impact of individual words on a sentence's sentiment as a voting game.
+												Our results suggest that EBPI is an effective proxy for BPI (because the meaning of a sentence is not always 100\% compositional), and demonstrate an expoential improvement in runtime.
+											</p>
+											<!-- <p>The Banzhaf Power Index is a widely-used method of measuring the pwoer of voters in a hierarchical voting game. In this paper, we introduce an expoential improvement to the algorithm. This decreases the runtime 
+												from O(N<sup>2</sup> 2<sup>N</sup>) to O(NS 2<sup>S</sup>), where N is the number of players in the game and S is the branching factor in the game tree.
+												We then apply the algorithm to 2 examples: Slovena Senate elections and the importance of words in determining positive or negative sentiment in language.</p>	 -->
+											<p>This work was published as part of <a href="https://www.aamas2024-conference.auckland.ac.nz/">AAMAS (International Conference on Autonomous Agents and Multiagent Systems) 2024.</a></p>
 											<ul class="actions">
-												<li style="align-self:center"><a href="../assets/APMACS_thesis.pdf" download="APMACS_thesis.pdf" class="icon alt fa-file button"> Paper</a></li>
-												<li><a href="https://docs.google.com/presentation/d/1fey3jiNbewUYaAyFnN9a3804-ma18HTTq-7IGo2qFhs/edit?usp=sharing" class="button">Presentation (short)</a></li>
-												<li><a href="https://docs.google.com/presentation/d/1GERe0A-KgpjdIXvyuBAXER4DTCbhAWs_gIfLBUVGAhs/edit?usp=sharing" class="button">Presentation (long)</a></li>
+												<li style="align-self:center"><a href="../assets/APMACS_thesis.pdf" download="APMACS_thesis.pdf" class="icon alt fa-file button"> Paper (ArXiv)</a></li>
+												<li style="align-self:center"><a href="https://arxiv.org/abs/2501.06871" download="APMACS_thesis.pdf" class="icon alt fa-file button"> Paper (Thesis)</a></li>
+												<li><a href="https://docs.google.com/presentation/d/1fey3jiNbewUYaAyFnN9a3804-ma18HTTq-7IGo2qFhs/edit?usp=sharing" class="button">Slides (short)</a></li>
+												<li><a href="https://docs.google.com/presentation/d/1GERe0A-KgpjdIXvyuBAXER4DTCbhAWs_gIfLBUVGAhs/edit?usp=sharing" class="button">Slides (long)</a></li>
 											</ul>
 										</div>
 									</div>
@@ -73,11 +82,9 @@
 											</header>
 											<p>In 2020, I worked as a <a href="https://www.bluebonnetdata.org/">Bluebonnet</a> data fellow supporting two campaigns:
 												<a href="https://www.marquitabradshaw.com/">Bradshaw for US Senate</a> and <a href="https://abc6onyourside.com/news/beyond-the-podium/ohio-12th-district-race-congress-most-competitive-central-ohio">Alaina 2020</a> (House of Representatives).
-												Campaigns ramp up before the elction like sports teams ramp up before nationals, so I spent the week before election day in a hotel room in Memphis - the longest time I've ever gone without seeing the sun.
-												Another other college student (Eddie) and I built a live turnout tracking map for election day. By Tennessee state law, someone can ask for vote turnout totals every two hours at a polling station, so we had
-												volunteers spaced out across the state taking measurements every two hours and feeding them into a google form, which then was transformed by spreadsheet logic and python and magic into a live, interactive turnout tracker.
-												This map extrapolated turnout across the state and estimated the result of the election based primarly on (a) historical voting patterns and (b) the relative turnout of our 7 key counties versus the rest 
-												of the state. We were able to call the election before the news stations, which was at the same time gratifying and depressing.</p>
+												One project for this effort was to build a live map for election day. This involved volunteers at precints across Tennessee requesting turnout
+												numbers every two hours (as required by Tennessee state law). From there, the Google form data was read into a python pipeline and compared to historical voting patterns to create a 
+												interactive turnout tracker. This allowed us to target election day turnout campaigns and to call the result of the election before the legacy media.
 											<ul class="actions">
 												<li><a href="https://www.bluebonnetdata.org/post/the-view-from-the-boiler-room" class="button">Bluebonnet article</a></li>
 												<li><a href="https://tennessee-precinct-turnout.netlify.app/src/precincts.html" class="button">Turnout tracker</a></li>
@@ -96,13 +103,13 @@
 											</header>
 											<p> For my thesis in <a href="https://www.brown.edu/undergraduateconcentrations/behavioral-decision-sciences-ab">Behavioral Decision Sciences</a>,
 												I examined voting power in forming coalition governemnts in Germany, Japan, and the UK through the lens of the Shapley-Shubik Power Index.
-												I chose these three countries because they have different electoral systems (first-past-the-post, mixed-member proportional, and parrallel voting).
+												The three countries have different electoral systems (first-past-the-post, mixed-member proportional, and parrallel voting).
 												There were several differences between the distribution of power in the three countries but in each, power correlated with seat share and
 												vote share but was much more volatile, leading to disparate effects on political parties.</p>
 											<ul class="actions">
 												<li style="align-self:center"><a href="../assets/BDS_capstone_project.pdf" download="BDS_capstone_project.pdf" class="icon alt fa-file button"> Paper</a></li>
-												<li><a href="https://docs.google.com/presentation/d/1bvNnDGr2OQDljtjwgwNwGGU3s0QJWtJjBvjjwESWe54/edit?usp=sharing" class="button">Presentation (short)</a></li>
-												<li><a href="https://docs.google.com/presentation/d/1jaTtiOvF9bL4eno45nME36U-ksH0CdNMQFECMpnEcYA/edit?usp=sharing" class="button">Presentation (long)</a></li>
+												<li><a href="https://docs.google.com/presentation/d/1bvNnDGr2OQDljtjwgwNwGGU3s0QJWtJjBvjjwESWe54/edit?usp=sharing" class="button">Slides (short)</a></li>
+												<li><a href="https://docs.google.com/presentation/d/1jaTtiOvF9bL4eno45nME36U-ksH0CdNMQFECMpnEcYA/edit?usp=sharing" class="button">Slides (long)</a></li>
 											</ul>
 										</div>
 									</div>
@@ -134,7 +141,7 @@
 											<header class="major">
 												<h3>GrantLindsley.com</h3>
 											</header>
-											<p>My good friend Grant Lindsley published a wonderful memoir about his six months as a silent monk in Thailand.
+											<p>My good friend Grant published a memoir about his six months as a silent monk in Thailand.
 												Check it out - it's worth a read. I made this website for him and his book. See if you can find the easter egg.</p>
 											<ul class="actions">
 												<li><a href="https://www.grantlindsley.com" class="button">The Website</a></li>
