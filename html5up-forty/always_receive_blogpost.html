@@ -1,200 +1,270 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
 	Forty by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>John G Randolph</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="icon" type="image/jpg" href="../images/logo3.png"/>
-	</head>
-	<body class="is-preload">
+  <head>
+    <title>John G Randolph</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+    <link rel="icon" type="image/jpg" href="../images/logo3.png" />
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header" class="alt">
+        <a href="../index.html" class="logo"
+          >John <span>G <strong>Randolph</strong></span> .com</a
+        >
+        <nav>
+          <a href="../blog_home.html">Blog home</a>
+        </nav>
+      </header>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+      <!-- Banner -->
+      <section id="banner" class="major">
+        <div class="inner">
+          <img
+            style="float: right"
+            width="300em"
+            src="../images/coin_toss_logo.png"
+            alt="image"
+          />
+          <h1 style="font-size: 2.5em">
+            <strong> Always receive </strong> <br />
+            <span style="font-size: 0.585em"
+              >Why you should <strong>never</strong> choose to pull during the
+              flip</span
+            >
+          </h1>
+          <ul class="actions">
+            <li>
+              <a
+                href="#main"
+                id="enter-tax"
+                class="button large next scrolly"
+                onclick="onStart();"
+                >Read</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<a href="../index.html" class="logo">John <span>G <strong>Randolph</strong></span> .com</a>
-						<nav>
-							<a href="../blog_home.html">Blog home</a>
-						</nav>
-					</header>
+      <!-- this will be filled in by inject-html.js -->
+      <section id="main" class="major">
+        <div class="inner">
+          <h2>Intro</h2>
+          <p>
+            Choosing to pull or receive is a choice that one team has every
+            game. It's about as common a problem as comes up in ultimate. It's
+            also a well defined choice with an overwhelmingly clear theoretical
+            answer.
+          </p>
+          <p>
+            There may be good reasons to choose to pull to start the game (if
+            the game is overwhelmingly upwind/downwind or you believe your team
+            benefits significantly by starting on defense). Those reasons
+            (though unlikely and usually overestimated, in my experience) may be
+            well and good. But there is one very bad argument to choose to pull
+            that is still floating around the frisbee community - that if you
+            break before half, we get an extra break. This blog post is a simple
+            but thorough proof that the “extra break” you receive is not a good
+            reason to start pulling.
+          </p>
+          <p>
+            This framework can be complex to imagine, even more so if you are
+            trying to do it in the five seconds after you've won the flip before
+            you state what your choice is. However, if you take the time to draw
+            out the possibilities, the solution falls out easily and simply. I'm
+            writing this blog post so that the next time someone brings up the
+            choose-to-pull-for-the-halftime-extra-break I can direct them here
+            instead of trying to explain it to them.
+          </p>
+          <h2>Proof</h2>
+          <p>
+            At the start of the game, you can either to receive or pull. Here is
+            every possibility that can occur
+          </p>
+          <table border="1">
+            <tr>
+              <th>Start of game</th>
+              <th>During first half</th>
+              <th>
+                Minimum breaks needed to win / Max breaks that can be given up
+              </th>
+            </tr>
+            <tr>
+              <td>You receive</td>
+              <td>Equal number of breaks & times broken</td>
+              <td>Break 0 times</td>
+            </tr>
+            <tr>
+              <td>You receive</td>
+              <td>Broken 1 more time than you break</td>
+              <td>Break 2 times</td>
+            </tr>
+            <tr>
+              <td>You receive</td>
+              <td>Broken n>1 more times than you break</td>
+              <td>Break n+1 times</td>
+            </tr>
+            <tr>
+              <td>You receive</td>
+              <td>Break 1 more time than you are broken</td>
+              <td>Broken 1 time</td>
+            </tr>
+            <tr>
+              <td>You receive</td>
+              <td>Break n>1 more times than you are broken</td>
+              <td>Broken n times</td>
+            </tr>
+            <tr>
+              <td>You pull</td>
+              <td>Equal number of breaks & times broken</td>
+              <td>Break 1 time</td>
+            </tr>
+            <tr>
+              <td>You pull</td>
+              <td>Broken 1 more time than you break</td>
+              <td>Break 2 times</td>
+            </tr>
+            <tr>
+              <td>You pull</td>
+              <td>Broken n>1 more times than you break</td>
+              <td>Break n+1 times</td>
+            </tr>
+            <tr>
+              <td>You pull</td>
+              <td>Break 1 more time than you are broken</td>
+              <td>Broken 1 time</td>
+            </tr>
+            <tr>
+              <td>You pull</td>
+              <td>Break n>1 more times than you are broken</td>
+              <td>Broken n times</td>
+            </tr>
+          </table>
+          <p>Here's that exact same information in a differnt format.</p>
+          <table>
+            <tr>
+              <th>During the first half</th>
+              <th>
+                <strong>If you started the game receiving</strong> <br />
+                Min. breaks to win / Max breaks that can be given up
+              </th>
+              <th>
+                <strong>If you started the game pulling</strong> <br />
+                Min. breaks to win / Max breaks that can be given up
+              </th>
+            </tr>
+            <tr>
+              <td>Equal number of breaks & times broken</td>
+              <td>Break 0 times</td>
+              <td>Break 1 time</td>
+            </tr>
+            <tr>
+              <td>Broken 1 more time than you break</td>
+              <td>Break 2 times</td>
+              <td>Break 2 times</td>
+            </tr>
+            <tr>
+              <td>Broken n>1 more times than you break</td>
+              <td>Break n+1 times</td>
+              <td>Break n+1 times</td>
+            </tr>
+            <tr>
+              <td>Break 1 more time than you are broken</td>
+              <td>Broken 1 time</td>
+              <td>Broken 1 time</td>
+            </tr>
+            <tr>
+              <td>Break n>1 more times than you are broken</td>
+              <td>Broken n times</td>
+              <td>Broken n times</td>
+            </tr>
+          </table>
+          <p>
+            As is clear from this table, choosing to receive strictly dominates
+            choosing to receive. The number of breaks you need is generally the
+            same in most situations, but going into half “on serve” you would
+            rather have received to start the game. Note that nowhere is there
+            any advantage to choosing to pull to start.
+          </p>
+          <p>
+            Another way to think of this is that the extra break you gain by
+            breaking 1+ times before half (after starting pulling) exactly makes
+            up for the 1-break difference between pulling and receiving you
+            forfeited by pulling to start (pulling = down half a break;
+            receiving = up half a break).
+          </p>
+          <h2>Conclusion</h2>
+          <p>
+            Unless there are other factors that are very impactful (unlikely),
+            always choose to receive.
+          </p>
+        </div>
+      </section>
 
-				<!-- Banner -->
-					<section id="banner" class="major">
-						<div class="inner">
-							<img style="float:right" width="300em" src="../images/coin_toss_logo.png" alt="image">
-								<h1 style="font-size:2.5em"> <strong> Always receive </strong> <br />
-								<span style="font-size:.585em">Why you should <strong>never</strong> choose to pull during the flip</span></h1>
-								<ul class="actions">
-									<li><a href="#main" id="enter-tax" class="button large next scrolly" onclick='onStart();'>Read</a></li>
-								</ul>
-						</div>
+      <!-- Footer -->
+      <footer id="footer">
+        <div class="inner">
+          <ul class="icons">
+            <li>
+              <a
+                href="../assets/Randolph.Resume.pdf"
+                download="Randolph.Resume.pdf"
+                class="icon alt fa-file"
+                ><span class="label">Resume</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/randolph-john"
+                class="icon alt fa-github"
+                ><span class="label" style="color: black">GitHub</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/randolph-john/"
+                class="icon alt fa-linkedin"
+                ><span class="label">LinkedIn</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="mailto:john_randolph@alumni.brown.edu"
+                class="icon alt fa-envelope"
+                ><span class="label">LinkedIn</span></a
+              >
+            </li>
+          </ul>
+          <ul class="copyright">
+            <li>&copy; John Randolph 2023</li>
+          </ul>
+        </div>
+      </footer>
+    </div>
 
-					</section>
-
-				<!-- this will be filled in by inject-html.js -->
-					<section id="main" class="major">
-						<div class="inner">
-						<h2>Intro</h2>
-                        <p>
-                            Choosing to pull or receive is a choice that one team has every game. It's about as common a problem as comes up
-                            in ultimate. It's also a well defined choice with an overwhelmingly clear theoretical answer.
-                        </p>
-                        <p>
-                            There may be good reasons to choose to pull to start the game (if the game is overwhelmingly upwind/downwind or you
-                            believe your team benefits significantly by starting on defense). Those reasons (though unlikely and usually overestimated,
-                            in my experience) may be well and good. But there is one very bad argument to choose to pull that is still floating
-                            around the frisbee community - that if you break before half, we get an extra break. This blog post is a simple but
-                            thorough proof that the “extra break” you receive is not a good reason to start pulling.
-                        </p>
-                        <p>
-                            This framework can be complex to imagine, even more so if you are trying to do it in the five seconds after you've
-                            won the flip before you state what your choice is. However, if you take the time to draw out the possibilities,
-                            the solution falls out easily and simply. I'm writing this blog post so that the next time someone brings up the
-                            choose-to-pull-for-the-halftime-extra-break I can direct them here instead of trying to explain it to them.
-                        </p>
-                        <h2>Proof</h2>
-                        <p>
-                            At the start of the game, you can either to receive or pull. Here is every possibility that can occur
-                        </p>
-                        <table border="1">
-                            <tr>
-                                <th>Start of game</th>
-                                <th>During first half</th>
-                                <th>Minimum breaks needed to win / Max breaks that can be given up</th>
-                            </tr>
-                            <tr>
-                                <td>You receive</td>
-                                <td>Equal number of breaks & times broken</td>
-                                <td>Break 0 times</td>
-                            </tr>
-                            <tr>
-                                <td>You receive</td>
-                                <td>Broken 1 more time than you break</td>
-                                <td>Break 2 times</td>
-                            </tr>
-                            <tr>
-                                <td>You receive</td>
-                                <td>Broken n>1 more times than you break</td>
-                                <td>Break n+1 times</td>
-                            </tr>
-                            <tr>
-                                <td>You receive</td>
-                                <td>Break 1 more time than you are broken</td>
-                                <td>Broken 1 time</td>
-                            </tr>
-                            <tr>
-                                <td>You receive</td>
-                                <td>Break n>1 more times than you are broken</td>
-                                <td>Broken n times</td>
-                            </tr>
-                            <tr>
-                                <td>You pull</td>
-                                <td>Equal number of breaks & times broken</td>
-                                <td>Break 1 time</td>
-                            </tr>
-                            <tr>
-                                <td>You pull</td>
-                                <td>Broken 1 more time than you break</td>
-                                <td>Break 2 times</td>
-                            </tr>
-                            <tr>
-                                <td>You pull</td>
-                                <td>Broken n>1 more times than you break</td>
-                                <td>Break n+1 times</td>
-                            </tr>
-                            <tr>
-                                <td>You pull</td>
-                                <td>Break 1 more time than you are broken</td>
-                                <td>Broken 1 time</td>
-                            </tr>
-                            <tr>
-                                <td>You pull</td>
-                                <td>Break n>1 more times than you are broken</td>
-                                <td>Broken n times</td>
-                            </tr>
-                        </table>
-                        <p>Here's that exact same information in a differnt format.</p>
-                        <table>
-                            <tr>
-                                <th>During the first half</th>
-                                <th><strong>If you started the game receiving</strong> <br> Min. breaks to win / Max breaks that can be given up</th>
-                                <th><strong>If you started the game pulling</strong> <br> Min. breaks to win / Max breaks that can be given up</th>
-                            </tr>
-                            <tr>
-                                <td>Equal number of breaks & times broken</td>
-                                <td>Break 0 times</td>
-                                <td>Break 1 time</td>
-                            </tr>
-                            <tr>
-                                <td>Broken 1 more time than you break</td>
-                                <td>Break 2 times</td>
-                                <td>Break 2 times</td>
-                            </tr>
-                            <tr>
-                                <td>Broken n>1 more times than you break</td>
-                                <td>Break n+1 times</td>
-                                <td>Break n+1 times</td>
-                            </tr>
-                            <tr>
-                                <td>Break 1 more time than you are broken</td>
-                                <td>Broken 1 time</td>
-                                <td>Broken 1 time</td>
-                            </tr>
-                            <tr>
-                                <td>Break n>1 more times than you are broken</td>
-                                <td>Broken n times</td>
-                                <td>Broken n times</td>
-                            </tr>
-                        </table>
-                        <p>
-                            As is clear from this table, choosing to receive strictly dominates choosing to receive. The number of breaks you need
-                            is generally the same in most situations, but going into half “on serve” you would rather have received to start the
-                            game. Note that nowhere is there any advantage to choosing to pull to start.
-                        </p>
-                        <p>
-                            Another way to think of this is that the extra break you gain by breaking 1+ times before half (after starting pulling) exactly makes up for
-                            the 1-break difference between pulling and receiving you forfeited by pulling to start (pulling = down half a break; receiving
-                            = up half a break).
-                        </p>
-                        <h2>Conclusion</h2>
-                        <p>Unless there are other factors that are very impactful (unlikely), always choose to receive.</p>
-					</div>
-					</section>
-
-
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="../assets/Randolph.Resume.pdf" download="Randolph.Resume.pdf" class="icon alt fa-file"><span class="label">Resume</span></a></li>
-								<li><a href="https://github.com/randolph-john" class="icon alt fa-github"><span class="label" style="color:black;">GitHub</span></a></li>
-								<li><a href="https://www.linkedin.com/in/randolph-john/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-								<li><a href="mailto:john_randolph@alumni.brown.edu" class="icon alt fa-envelope"><span class="label">LinkedIn</span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; John Randolph 2023</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="banzhof-inject-html.js"></script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-	</body>
+    <!-- Scripts -->
+    <script src="banzhof-inject-html.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>

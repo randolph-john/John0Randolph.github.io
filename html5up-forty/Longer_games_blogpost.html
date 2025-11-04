@@ -1,184 +1,319 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
 	Forty by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>John G Randolph</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="icon" type="image/jpg" href="../images/logo3.png"/>
-	</head>
-	<body class="is-preload">
+  <head>
+    <title>John G Randolph</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+    <link rel="icon" type="image/jpg" href="../images/logo3.png" />
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header" class="alt">
+        <a href="../index.html" class="logo"
+          >John <span>G <strong>Randolph</strong></span> .com</a
+        >
+        <nav>
+          <a href="../blog_home.html">Blog home</a>
+        </nav>
+      </header>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+      <!-- Banner -->
+      <section id="banner" class="major">
+        <div class="inner">
+          <img
+            style="float: right"
+            width="300em"
+            src="../images/scoreboard.png"
+            alt="ultiworld graphic"
+          />
+          <h1 style="font-size: 2.5em">
+            Games to <strong> 17 </strong><br />
+            <span style="font-size: 0.585em"
+              >How much do longer games help the better team?</span
+            >
+          </h1>
+          <ul class="actions">
+            <li>
+              <a
+                href="#main"
+                id="enter-tax"
+                class="button large next scrolly"
+                onclick="onStart();"
+                >Read</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<a href="../index.html" class="logo">John <span>G <strong>Randolph</strong></span> .com</a>
-						<nav>
-							<a href="../blog_home.html">Blog home</a>
-						</nav>
-					</header>
+      <!-- this will be filled in by inject-html.js -->
+      <section id="main" class="major">
+        <div class="inner">
+          <h2>Intro</h2>
+          <p>
+            In my opinion, there should always be a balance of chance in sports,
+            especially in the playoffs. The better team should win more often,
+            but there should always lurk the possibility of a thrilling upset.
+            Put to the extreme, skill has no meaning if the better team wins as
+            often as they lose; and if the better team always wins, then there
+            is no fun at all in the game.
+          </p>
+          <p>
+            In this vein, playing to a higher point total causes the better team
+            will win more often. If this isn't intuitively obvious to you,
+            consider the following examples.
+          </p>
+          <ol>
+            <li>
+              Is a pickup team more likely to beat 2016 Revolver in a game to 1
+              or a game to 15?
+            </li>
+            <li>
+              Are the 2012 Charlotte Bobcats more likely to beat the 1996
+              Chicago Bulls in a single game or in a 7-game series?
+            </li>
+          </ol>
+          <p>
+            This relationship between variance and game length is true in less
+            extreme examples, too - for instance, between two relatively evenly
+            matched teams in the quarterfinals of club nationals, playing to 15.
+          </p>
+          <p>
+            In this blog post, we'll explore how often the better team wins in
+            big ultimate games, and how much changing the score total changes
+            the likelihood that the better team wins.
+          </p>
+          <h2>Approach</h2>
+          <p>
+            We'll model the game as a series of independently points that can be
+            won by either team
+            <a id="footnote-1-reference" href="#footnote-1">[1]</a>. Then, if
+            team A has probability p of winning any given point in a game to n
+            points, the probability that they win the game is
+          </p>
+          <p>
+            \(F1: \sum_{i = 0}^{n-1} \frac{(n+i-1)!}{(n-1)! i!} (1-p)^i p^n \)
+          </p>
+          <p>
+            We know that this is equal to the probability that team A beats team
+            B, which we can calculate another way: from their elo rankings. That
+            formula is
+          </p>
+          <p>\( F2: \frac{1}{1 + 10^{\frac{elo_B - elo_A}{400}}} \)</p>
+          <p>
+            With these two formulae, our approach becomes straightforward. From
+            the USAU rankings, which give elo scores, we use F2 to calculate the
+            expected chance of the better team winning. From there, we can
+            invert F2 <a id="footnote-2-reference" href="#footnote-2">[2]</a> to
+            find the probability that the better team wins any given point under
+            the constraints of our model
+            <a id="footnote-3-reference" href="#footnote-3">[3]</a>. Then all we
+            need to do is run that number back through F1 with various point
+            totals and compare the outcomes.
+          </p>
+          <h2>Results</h2>
+          <p>
+            For our range of possible Elo differences, let's look at historical
+            data. The biggest difference at club nationals in 2023 was between
+            Scandal (2606.7) and Pop (1402.13), for a whopping difference of
+            1204.57 elo points
+            <a id="footnote-4-reference" href="#footnote-3">[4]</a>. We'll start
+            with this large range - anywhere up to 1200 elo points differential
+            - and range the possible point totals from 1 to 25. Here's what
+            those results look like:
+          </p>
+          <figure>
+            <img
+              style="text-align: center"
+              width="1000em"
+              src="../images/1to25by100s.png"
+              alt="Scatterplot of power rankings accuracy"
+            />
+          </figure>
+          <p>A few takeaways:</p>
+          <ul>
+            <li>
+              In a game to 15, anywhere more than a 400 point elo difference
+              gives you a >=90% chance of winning
+            </li>
+            <li>
+              In a game to 25, a 300 point elo difference should give the same
+              odds of winning (>=90%) to the better team
+            </li>
+            <li>
+              Even in a game to 1, Scandal has a 75% chance of beating Pop
+            </li>
+          </ul>
+          <p>
+            But we can look more fine-grained. We know games are played to odd
+            numbers in the teens, so we'll examine odd scores from 11 to 21.
+            Furthermore, the games we care most about occur in the bracket at
+            USAU nationals. So let's look at how big the elo gap is for those
+            games. Here's that histogram:
+          </p>
+          <figure>
+            <img
+              style="text-align: center"
+              width="1000em"
+              src="../images/EloDifferentialHistogram.png"
+              alt="Scatterplot of power rankings accuracy"
+            />
+          </figure>
+          <p>
+            Most games in the bracket at nationals occur between teams that have
+            less than or equal to about 300 elo points in ranking differential,
+            with a somewhat flat distribution below that number. We'll
+            accordingly restrict our examination window to below elo 300 points
+            in ranking differential. Then, here's that data:
+          </p>
+          <figure>
+            <img
+              style="text-align: center"
+              width="1000em"
+              src="../images/11to21by10s.png"
+              alt="Scatterplot of power rankings accuracy"
+            />
+          </figure>
+          <p>A few takeaways:</p>
+          <ul>
+            <li>
+              Elo differential makes a much larger difference than point total
+            </li>
+            <li>
+              We could play short games and be just fine - even in games to 11,
+              the better team prevails nearly as often as they do in games to 15
+            </li>
+          </ul>
+          <h2>Conclusion</h2>
+          <p>
+            The point total of a game affects the chance of the winning team
+            less than I had anticipated. For example, in the men's final between
+            Truck Stop (2499.23) and Machine (2189.71), increasing the game
+            length from 15 to 19 only decreases Machine's chances by about four
+            percent. In the more evenly matched semifinal between Hybrid
+            (1823.85) and XIST (1920.86), increasing the game length to 19 only
+            increases XIST's chances by about two and a half percent.
+          </p>
+          <p>
+            This blog post changed my mind. I came into writing it expecting it
+            to be an argument for longer games from the standpoint of reducing
+            volatility in winning. Now I see that the game length matters
+            little, though
+            <a href="Simulating_nationals_blogpost.html">
+              there still is a huge amount of variance in the winners of
+              nationals</a
+            >
+            any way about it.
+          </p>
+          <h4>Resources</h4>
+          <ul>
+            <li>
+              <a
+                href="https://colab.research.google.com/drive/1s2XKcaonG8sncSsqLBv-Gi9r8Pnk1_kW?usp=sharing"
+                >Code</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://docs.google.com/spreadsheets/d/11oAcmJcFmuodq39LNzoAQ6g5UeoM5Njnoj-Wk7xgZ6A/edit?usp=sharing"
+                >Output</a
+              >
+            </li>
+            <li>
+              <a href="https://www.frisbee-rankings.com/">USAU rankings</a>
+            </li>
+          </ul>
 
-				<!-- Banner -->
-					<section id="banner" class="major">
-						<div class="inner">
-							<img style="float:right" width="300em" src="../images/scoreboard.png" alt="ultiworld graphic">
-								<h1 style="font-size:2.5em">Games to <strong> 17 </strong><br />
-								<span style="font-size:.585em">How much do longer games help the better team?</span></h1>
-								<ul class="actions">
-									<li><a href="#main" id="enter-tax" class="button large next scrolly" onclick='onStart();'>Read</a></li>
-								</ul>
-						</div>
+          <p id="footnote-1">
+            <a href="#footnote-1-reference">[1]</a> this is a flawed model,
+            since holds and breaks are obviously not independent. But it will
+            suffice for our purposes.
+          </p>
+          <p id="footnote-2">
+            <a href="#footnote-2-reference">[2]</a> We can't invert a 15-degree
+            polynomial directly but we can invert it programmatically quite
+            easily.
+          </p>
+          <p id="footnote-3">
+            <a href="#footnote-3-reference">[3]</a> Another assumption is that
+            the USAU rankings are meant to encode information about games to 15.
+          </p>
+          <p id="footnote-4">
+            <a href="#footnote-4-reference">[4]</a> This indicates that Pop has
+            a 0.000000142% chance of winning any given game against Scandal, or
+            1.42 in 10 billion.
+          </p>
+        </div>
+      </section>
 
-					</section>
+      <!-- Footer -->
+      <footer id="footer">
+        <div class="inner">
+          <ul class="icons">
+            <li>
+              <a
+                href="../assets/Randolph.Resume.pdf"
+                download="Randolph.Resume.pdf"
+                class="icon alt fa-file"
+                ><span class="label">Resume</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/randolph-john"
+                class="icon alt fa-github"
+                ><span class="label" style="color: black">GitHub</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/randolph-john/"
+                class="icon alt fa-linkedin"
+                ><span class="label">LinkedIn</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="mailto:john_randolph@alumni.brown.edu"
+                class="icon alt fa-envelope"
+                ><span class="label">LinkedIn</span></a
+              >
+            </li>
+          </ul>
+          <ul class="copyright">
+            <li>&copy; John Randolph 2023</li>
+          </ul>
+        </div>
+      </footer>
+    </div>
 
-				<!-- this will be filled in by inject-html.js -->
-					<section id="main" class="major">
-						<div class="inner">
-						<h2>Intro</h2>
-                        <p>
-                            In my opinion, there should always be a balance of chance in sports, especially in the playoffs. The better team should win more often,
-                            but there should always lurk the possibility of a thrilling upset. Put to the extreme, skill has no meaning if the better team
-                            wins as often as they lose; and if the better team always wins, then there is no fun at all in the game.
-                        </p>
-                        <p>
-                            In this vein, playing to a higher point total causes the better team will win more often. If this isn't intuitively obvious to you,
-                            consider the following examples.
-                        </p>
-                        <ol>
-                            <li>Is a pickup team more likely to beat 2016 Revolver in a game to 1 or a game to 15?</li>
-                            <li>Are the 2012 Charlotte Bobcats more likely to beat the 1996 Chicago Bulls in a single game or in a 7-game series?</li>
-                        </ol>
-                        <p>
-                            This relationship between variance and game length is true in less extreme examples, too - for instance, between two relatively
-                            evenly matched teams in the quarterfinals of club nationals, playing to 15.
-                        </p>
-                        <p>
-                            In this blog post, we'll explore how often the better team wins in big ultimate games, and how much changing the score total changes
-                            the likelihood that the better team wins.
-                        </p>
-                        <h2>Approach</h2>
-                        <p>
-                            We'll model the game as a series of independently points that can be won by either team <a id="footnote-1-reference" href="#footnote-1">[1]</a>. Then, if team
-                            A has probability p of winning any given point in a game to n points, the probability that they win the game is
-                            
-                        </p>
-                        <p>\(F1: \sum_{i = 0}^{n-1} \frac{(n+i-1)!}{(n-1)! i!} (1-p)^i p^n \)</p>
-                        <p>We know that this is equal to the probability that team A beats team B, which we can calculate another way: from their elo rankings. That formula is</p>
-                        <p>\( F2: \frac{1}{1 + 10^{\frac{elo_B - elo_A}{400}}} \)</p>
-                        <p>
-                            With these two formulae, our approach becomes straightforward. From the USAU rankings, which give elo scores, we use F2 to calculate the expected
-                            chance of the better team winning. From there, we can invert F2 <a id="footnote-2-reference" href="#footnote-2">[2]</a> to find the probability
-                            that the better team wins any given point under the constraints of our model <a id="footnote-3-reference" href="#footnote-3">[3]</a>. Then all we need to do
-                            is run that number back through F1 with various point totals and compare the outcomes.
-                        </p>
-                        <h2>Results</h2>
-                        <p>
-                            For our range of possible Elo differences, let's look at historical data. The biggest difference at club nationals in 2023 was between
-                            Scandal (2606.7) and Pop (1402.13), for a whopping difference of 1204.57 elo points <a id="footnote-4-reference" href="#footnote-3">[4]</a>. We'll start with
-                            this large range - anywhere up to 1200 elo points differential - and range the possible point totals from 1 to 25. Here's what those
-                            results look like:
-                        </p>
-						<figure>
-							<img style="text-align:center" width="1000em" src="../images/1to25by100s.png" alt="Scatterplot of power rankings accuracy">
-						</figure>
-                        <p>A few takeaways:</p>
-                        <ul>
-                            <li>In a game to 15, anywhere more than a 400 point elo difference gives you a >=90% chance of winning</li>
-                            <li>In a game to 25, a 300 point elo difference should give the same odds of winning (>=90%) to the better team</li>
-                            <li>Even in a game to 1, Scandal has a 75% chance of beating Pop</li>
-                        </ul>
-                        <p>
-                            But we can look more fine-grained. We know games are played to odd numbers in the teens, so we'll examine odd scores from 11 to 21.
-                            Furthermore, the games we care most about occur in the bracket at USAU nationals. So let's look at how big the elo gap is for those games.
-                            Here's that histogram:
-                        </p>
-						<figure>
-							<img style="text-align:center" width="1000em" src="../images/EloDifferentialHistogram.png" alt="Scatterplot of power rankings accuracy">
-                        </figure>
-                        <p>
-                            Most games in the bracket at nationals occur between teams that have less than or equal to about 300 elo points in ranking differential,
-                            with a somewhat flat distribution below that number. We'll accordingly restrict our examination window to below elo 300 points in
-                            ranking differential. Then, here's that data:
-                        </p>
-						<figure>
-							<img style="text-align:center" width="1000em" src="../images/11to21by10s.png" alt="Scatterplot of power rankings accuracy">
-                        </figure>
-                        <p>A few takeaways:</p>
-                        <ul>
-                            <li>Elo differential makes a much larger difference than point total</li>
-                            <li>We could play short games and be just fine - even in games to 11, the better team prevails nearly as often as they do in games to 15</li>
-                        </ul>
-                        <h2>Conclusion</h2>
-                        <p>
-                            The point total of a game affects the chance of the winning team less than I had anticipated. For example, in the men's final
-                            between Truck Stop (2499.23) and Machine (2189.71), increasing the game length from 15 to 19 only decreases Machine's chances by about
-                            four percent. In the more evenly matched semifinal between Hybrid (1823.85) and XIST (1920.86), increasing the game length to 19 only
-                            increases XIST's chances by about two and a half percent.
-                        </p>
-                        <p>
-                            This blog post changed my mind. I came into writing it expecting it to be an argument for longer games from the standpoint of
-                            reducing volatility in winning. Now I see that the game length matters little, though
-                            <a href="Simulating_nationals_blogpost.html"> there still is a huge amount of variance in the winners of nationals</a> any way about it.
-                        </p>
-						<h4>
-							Resources
-						</h4>
-						<ul>
-							<li><a href="https://colab.research.google.com/drive/1s2XKcaonG8sncSsqLBv-Gi9r8Pnk1_kW?usp=sharing">Code</a></li>
-							<li><a href="https://docs.google.com/spreadsheets/d/11oAcmJcFmuodq39LNzoAQ6g5UeoM5Njnoj-Wk7xgZ6A/edit?usp=sharing">Output</a></li>
-							<li><a href="https://www.frisbee-rankings.com/">USAU rankings</a></li>
-						</ul>
-
-						<p id="footnote-1"><a href="#footnote-1-reference">[1]</a> this is a flawed model, since holds and breaks are obviously not
-                            independent. But it will suffice for our purposes.
-						</p>
-						<p id="footnote-2"><a href="#footnote-2-reference">[2]</a> We can't invert a 15-degree polynomial directly but we can invert
-                            it programmatically quite easily.
-						</p>
-						<p id="footnote-3"><a href="#footnote-3-reference">[3]</a> Another assumption is that the USAU rankings are meant to encode information about games to 15.
-						</p>
-						<p id="footnote-4"><a href="#footnote-4-reference">[4]</a> This indicates that Pop has a 0.000000142% chance of winning any
-                            given game against Scandal, or 1.42 in 10 billion.
-						</p>
-
-					</div>
-					</section>
-
-
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="../assets/Randolph.Resume.pdf" download="Randolph.Resume.pdf" class="icon alt fa-file"><span class="label">Resume</span></a></li>
-								<li><a href="https://github.com/randolph-john" class="icon alt fa-github"><span class="label" style="color:black;">GitHub</span></a></li>
-								<li><a href="https://www.linkedin.com/in/randolph-john/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-								<li><a href="mailto:john_randolph@alumni.brown.edu" class="icon alt fa-envelope"><span class="label">LinkedIn</span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; John Randolph 2023</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-            <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-	</body>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </body>
 </html>
